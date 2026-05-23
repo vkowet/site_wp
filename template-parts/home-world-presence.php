@@ -11,10 +11,11 @@ if($query->have_posts()): ?>
 <h2>PRÉSENCE DANS LE MONDE</h2>
 <div class="fms-world-grid">
 <?php while($query->have_posts()): $query->the_post();
-$sisters=get_post_meta(get_the_ID(),'_fms_sisters',true);
-$communities=get_post_meta(get_the_ID(),'_fms_communities',true);
-$year=get_post_meta(get_the_ID(),'_fms_year',true);
-$flag=get_post_meta(get_the_ID(),'_fms_flag',true); ?>
+$sisters = get_post_meta(get_the_ID(),'_fms_sisters',true);
+$communities = get_post_meta(get_the_ID(),'_fms_communities',true);
+$year = get_post_meta(get_the_ID(),'_fms_year',true);
+$flag_id = get_post_meta(get_the_ID(),'_fms_flag',true);
+$flag = $flag_id ? wp_get_attachment_image_url($flag_id,'full') : ''; ?>
 <a href="<?php the_permalink(); ?>" class="fms-world-card">
 <div class="fms-world-card-inner">
 <div class="fms-world-card-front">
