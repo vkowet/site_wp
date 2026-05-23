@@ -31,4 +31,5 @@ $link=get_theme_mod('fms_slide_'.$i.'_button_link','#'); ?>
 </section>
 <?php endif; ?>
 <?php get_template_part('template-parts/home-message'); ?>
+<?php get_template_part('template-parts/home-foundress'); ?>
 <?php get_footer(); ?>
