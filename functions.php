@@ -20,79 +20,37 @@ function fms_enqueue_assets() {
 add_action('wp_enqueue_scripts', 'fms_enqueue_assets');
 
 function fms_customize_register($wp_customize) {
-
-    $wp_customize->add_section('fms_header_identity', [
-        'title' => __('Identité du header FMS', 'fms-theme'),
-        'priority' => 30,
-    ]);
-
+    $wp_customize->add_section('fms_header_identity', ['title' => __('Identité du header FMS', 'fms-theme'),'priority' => 30]);
     $wp_customize->add_setting('fms_world_logo', ['sanitize_callback' => 'absint']);
-    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'fms_world_logo', [
-        'label' => __('Logo mondial', 'fms-theme'),
-        'section' => 'fms_header_identity',
-        'mime_type' => 'image',
-    ]));
-
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'fms_world_logo', ['label' => __('Logo mondial', 'fms-theme'),'section' => 'fms_header_identity','mime_type' => 'image']));
     $wp_customize->add_setting('fms_france_logo', ['sanitize_callback' => 'absint']);
-    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'fms_france_logo', [
-        'label' => __('Logo France', 'fms-theme'),
-        'section' => 'fms_header_identity',
-        'mime_type' => 'image',
-    ]));
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'fms_france_logo', ['label' => __('Logo France', 'fms-theme'),'section' => 'fms_header_identity','mime_type' => 'image']));
 
-    /* HERO SETTINGS */
-    $wp_customize->add_section('fms_hero_settings', [
-        'title' => __('Hero Settings', 'fms-theme'),
-        'priority' => 35,
-    ]);
+    $wp_customize->add_section('fms_hero_settings', ['title' => __('Hero Settings', 'fms-theme'),'priority' => 35]);
+    $wp_customize->add_setting('fms_hero_mode', ['default' => 'image','sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('fms_hero_mode', ['label' => __('Type d\'affichage', 'fms-theme'),'section' => 'fms_hero_settings','type' => 'select','choices' => ['image' => 'Image unique','slider' => 'Slider']]);
+    $wp_customize->add_setting('fms_slider_autoplay', ['default' => true,'sanitize_callback' => 'rest_sanitize_boolean']);
+    $wp_customize->add_control('fms_slider_autoplay', ['label' => __('Autoplay slider', 'fms-theme'),'section' => 'fms_hero_settings','type' => 'checkbox']);
+    $wp_customize->add_setting('fms_slider_duration', ['default' => 6000,'sanitize_callback' => 'absint']);
+    $wp_customize->add_control('fms_slider_duration', ['label' => __('Durée slide (ms)', 'fms-theme'),'section' => 'fms_hero_settings','type' => 'number']);
+    $wp_customize->add_setting('fms_slider_dots', ['default' => true,'sanitize_callback' => 'rest_sanitize_boolean']);
+    $wp_customize->add_control('fms_slider_dots', ['label' => __('Afficher dots', 'fms-theme'),'section' => 'fms_hero_settings','type' => 'checkbox']);
 
-    $wp_customize->add_setting('fms_hero_mode', [
-        'default' => 'image',
-        'sanitize_callback' => 'sanitize_text_field',
-    ]);
+    /* HERO IMAGE SETTINGS */
+    $wp_customize->add_setting('fms_hero_image', ['sanitize_callback' => 'absint']);
+    $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'fms_hero_image', ['label' => __('Image Hero', 'fms-theme'),'section' => 'fms_hero_settings','mime_type' => 'image']));
 
-    $wp_customize->add_control('fms_hero_mode', [
-        'label' => __('Type d\'affichage', 'fms-theme'),
-        'section' => 'fms_hero_settings',
-        'type' => 'select',
-        'choices' => [
-            'image' => 'Image unique',
-            'slider' => 'Slider'
-        ]
-    ]);
+    $wp_customize->add_setting('fms_hero_title', ['default' => 'Franciscaines Servantes de Marie','sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('fms_hero_title', ['label' => __('Titre Hero', 'fms-theme'),'section' => 'fms_hero_settings','type' => 'text']);
 
-    $wp_customize->add_setting('fms_slider_autoplay', [
-        'default' => true,
-        'sanitize_callback' => 'rest_sanitize_boolean',
-    ]);
+    $wp_customize->add_setting('fms_hero_text', ['default' => 'Au service de Dieu, de l’éducation et de la dignité humaine à travers le monde.','sanitize_callback' => 'sanitize_textarea_field']);
+    $wp_customize->add_control('fms_hero_text', ['label' => __('Texte Hero', 'fms-theme'),'section' => 'fms_hero_settings','type' => 'textarea']);
 
-    $wp_customize->add_control('fms_slider_autoplay', [
-        'label' => __('Autoplay slider', 'fms-theme'),
-        'section' => 'fms_hero_settings',
-        'type' => 'checkbox',
-    ]);
+    $wp_customize->add_setting('fms_hero_button_text', ['default' => 'Découvrir la Congrégation','sanitize_callback' => 'sanitize_text_field']);
+    $wp_customize->add_control('fms_hero_button_text', ['label' => __('Texte bouton', 'fms-theme'),'section' => 'fms_hero_settings','type' => 'text']);
 
-    $wp_customize->add_setting('fms_slider_duration', [
-        'default' => 6000,
-        'sanitize_callback' => 'absint',
-    ]);
-
-    $wp_customize->add_control('fms_slider_duration', [
-        'label' => __('Durée slide (ms)', 'fms-theme'),
-        'section' => 'fms_hero_settings',
-        'type' => 'number',
-    ]);
-
-    $wp_customize->add_setting('fms_slider_dots', [
-        'default' => true,
-        'sanitize_callback' => 'rest_sanitize_boolean',
-    ]);
-
-    $wp_customize->add_control('fms_slider_dots', [
-        'label' => __('Afficher dots', 'fms-theme'),
-        'section' => 'fms_hero_settings',
-        'type' => 'checkbox',
-    ]);
+    $wp_customize->add_setting('fms_hero_button_link', ['default' => '#','sanitize_callback' => 'esc_url_raw']);
+    $wp_customize->add_control('fms_hero_button_link', ['label' => __('Lien bouton', 'fms-theme'),'section' => 'fms_hero_settings','type' => 'url']);
 }
 add_action('customize_register', 'fms_customize_register');
 
