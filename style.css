@@ -14,11 +14,13 @@ Text Domain: fms-theme
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    color: #1d3557;
 }
 
 .fms-topbar {
-    background: #8c1d40;
+    background: #234e70;
     padding: 8px 20px;
+    font-size: 13px;
 }
 
 .fms-topbar ul,
@@ -27,8 +29,9 @@ body {
     padding: 0;
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
+    align-items: center;
 }
 
 .fms-topbar a,
@@ -41,47 +44,64 @@ body {
 .fms-branding {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 25px;
+    justify-content: center;
+    gap: 35px;
+    padding: 30px 80px;
     background: #fff;
 }
 
+.fms-brand-logo {
+    flex: 0 0 auto;
+}
+
 .fms-brand-logo img {
-    max-height: 90px;
+    max-height: 80px;
     width: auto;
 }
 
 .fms-brand-title {
     text-align: center;
-    flex: 1;
+    max-width: 700px;
 }
 
 .fms-brand-title h1 {
     margin: 0;
-    font-size: 2rem;
-    color: #8c1d40;
+    font-size: 2.3rem;
+    color: #16324f;
+    font-weight: 600;
 }
 
 .fms-brand-title p {
     margin-top: 10px;
     font-size: 1rem;
-    color: #555;
+    color: #4a6572;
+    font-style: italic;
 }
 
 .fms-main-nav {
-    background: #4d0f22;
+    background: #16324f;
     padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.fms-main-nav a {
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {
     .fms-branding {
         flex-direction: column;
         gap: 20px;
+        padding: 20px;
     }
 
     .fms-topbar ul,
     .fms-main-nav ul {
         flex-direction: column;
         gap: 10px;
+    }
+
+    .fms-brand-title h1 {
+        font-size: 1.7rem;
     }
 }
