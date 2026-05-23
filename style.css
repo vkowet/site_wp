@@ -10,3 +10,78 @@ Tested up to: 6.8
 Requires PHP: 8.1
 Text Domain: fms-theme
 */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.fms-topbar {
+    background: #8c1d40;
+    padding: 8px 20px;
+}
+
+.fms-topbar ul,
+.fms-main-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.fms-topbar a,
+.fms-main-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.fms-branding {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    background: #fff;
+}
+
+.fms-brand-logo img {
+    max-height: 90px;
+    width: auto;
+}
+
+.fms-brand-title {
+    text-align: center;
+    flex: 1;
+}
+
+.fms-brand-title h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #8c1d40;
+}
+
+.fms-brand-title p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.fms-main-nav {
+    background: #4d0f22;
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .fms-branding {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .fms-topbar ul,
+    .fms-main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
