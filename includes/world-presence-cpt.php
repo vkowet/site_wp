@@ -12,7 +12,7 @@ function fms_register_world_presence_cpt() {
         'has_archive' => true,
         'menu_icon' => 'dashicons-admin-site-alt3',
         'rewrite' => ['slug' => 'monde'],
-        'supports' => ['title','editor','thumbnail','excerpt'],
+        'supports' => ['title','editor','thumbnail','excerpt','custom-fields'],
         'show_in_rest' => true,
     ]);
 }
