@@ -17,23 +17,62 @@ body {
     color: #1d3557;
 }
 
+/* TOP MENU */
 .fms-topbar {
     background: #234e70;
-    padding: 8px 20px;
+    padding: 0;
     font-size: 13px;
 }
 
-.fms-topbar ul {
+.fms-topbar .menu {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
-    gap: 25px;
     justify-content: center;
     align-items: center;
 }
 
-.fms-topbar a,
+.fms-topbar .menu > li {
+    position: relative;
+}
+
+.fms-topbar .menu > li > a {
+    display: block;
+    padding: 10px 18px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.fms-topbar .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #16324f;
+    min-width: 120px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 999;
+}
+
+.fms-topbar .sub-menu li a {
+    display: block;
+    padding: 10px 14px;
+    color: white;
+    text-decoration: none;
+}
+
+.fms-topbar .menu > li:hover > .sub-menu {
+    display: block;
+}
+
+.fms-topbar .sub-menu li a:hover {
+    background: #0f2438;
+}
+
 .fms-main-nav a {
     color: white;
     text-decoration: none;
@@ -141,7 +180,7 @@ body {
         padding: 20px;
     }
 
-    .fms-topbar ul,
+    .fms-topbar .menu,
     .fms-main-nav .menu {
         flex-direction: column;
         gap: 10px;
@@ -150,4 +189,4 @@ body {
     .fms-brand-title h1 {
         font-size: 1.7rem;
     }
-} 
+}
