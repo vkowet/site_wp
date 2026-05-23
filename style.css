@@ -23,8 +23,7 @@ body {
     font-size: 13px;
 }
 
-.fms-topbar ul,
-.fms-main-nav ul {
+.fms-topbar ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -78,14 +77,61 @@ body {
     font-style: italic;
 }
 
+/* MENU PRINCIPAL */
 .fms-main-nav {
     background: #16324f;
-    padding: 15px;
+    padding: 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.fms-main-nav a {
+.fms-main-nav > ul,
+.fms-main-nav .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.fms-main-nav .menu > li {
+    position: relative;
+}
+
+.fms-main-nav .menu > li > a {
+    display: block;
+    padding: 18px 22px;
+    color: white;
+    text-decoration: none;
     font-weight: 500;
+}
+
+.fms-main-nav .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #234e70;
+    min-width: 250px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 999;
+}
+
+.fms-main-nav .sub-menu li a {
+    display: block;
+    padding: 12px 18px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.fms-main-nav .menu > li:hover > .sub-menu {
+    display: block;
+}
+
+.fms-main-nav .sub-menu li a:hover {
+    background: #16324f;
 }
 
 @media (max-width: 768px) {
@@ -96,7 +142,7 @@ body {
     }
 
     .fms-topbar ul,
-    .fms-main-nav ul {
+    .fms-main-nav .menu {
         flex-direction: column;
         gap: 10px;
     }
@@ -104,4 +150,4 @@ body {
     .fms-brand-title h1 {
         font-size: 1.7rem;
     }
-}
+} 
