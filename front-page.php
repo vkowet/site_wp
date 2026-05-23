@@ -30,4 +30,5 @@ $link=get_theme_mod('fms_slide_'.$i.'_button_link','#'); ?>
 <div class="fms-slider-dots"><span></span><span></span><span></span></div>
 </section>
 <?php endif; ?>
+<?php get_template_part('template-parts/home-message'); ?>
 <?php get_footer(); ?>
