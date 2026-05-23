@@ -19,6 +19,7 @@ function fms_enqueue_assets() {
 
     wp_enqueue_script('fms-navigation', get_template_directory_uri() . '/assets/js/navigation.js', [], wp_get_theme()->get('Version'), true);
     wp_enqueue_script('fms-hero-slider', get_template_directory_uri() . '/assets/js/hero-slider.js', [], wp_get_theme()->get('Version'), true);
+    wp_enqueue_style('fms-world', get_template_directory_uri() . '/assets/css/world-presence.css', [], wp_get_theme()->get('Version'));
 }
 add_action('wp_enqueue_scripts', 'fms_enqueue_assets');
 
