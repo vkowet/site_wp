@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
 
 <?php
-$world_logo  = get_option('fms_header_world_logo', '');
-$france_logo = get_option('fms_header_france_logo', '');
+$world_logo_id  = fms_get_option('identity', 'world_logo');
+$france_logo_id = fms_get_option('identity', 'france_logo');
 
-$header_title = get_option('fms_header_title', 'Franciscaines Servantes de Marie');
-$header_slogan = get_option('fms_header_slogan', 'Servir - Apprendre et Éduquer');
+$world_logo  = fms_get_image_url($world_logo_id);
+$france_logo = fms_get_image_url($france_logo_id);
+
+$header_title  = fms_get_option('identity', 'title', 'Franciscaines Servantes de Marie');
+$header_slogan = fms_get_option('identity', 'slogan', 'Servir - Apprendre et Éduquer');
 ?>
 
 <header class="fms-header">
 
     <!-- MOBILE HEADER -->
     <div class="fms-mobile-header">
+
         <div class="fms-mobile-logo left">
             <?php if ($world_logo): ?>
                 <img src="<?php echo esc_url($world_logo); ?>" alt="Logo mondial">
@@ -30,16 +35,20 @@ $header_slogan = get_option('fms_header_slogan', 'Servir - Apprendre et Éduquer
         </div>
 
         <div class="fms-mobile-actions">
+
             <div class="fms-mobile-logo right">
                 <?php if ($france_logo): ?>
                     <img src="<?php echo esc_url($france_logo); ?>" alt="Logo France">
                 <?php endif; ?>
             </div>
+
             <button class="fms-mobile-toggle" aria-label="Menu">☰</button>
+
         </div>
     </div>
 
-    <!-- TOP MENU DESKTOP -->
+
+    <!-- TOP MENU -->
     <div class="fms-topbar">
         <?php
         wp_nav_menu([
@@ -50,8 +59,10 @@ $header_slogan = get_option('fms_header_slogan', 'Servir - Apprendre et Éduquer
         ?>
     </div>
 
-    <!-- BRANDING DESKTOP -->
+
+    <!-- BRANDING -->
     <div class="fms-branding">
+
         <div class="fms-brand-logo left">
             <?php if ($world_logo): ?>
                 <img src="<?php echo esc_url($world_logo); ?>" alt="Logo mondial">
@@ -68,7 +79,9 @@ $header_slogan = get_option('fms_header_slogan', 'Servir - Apprendre et Éduquer
                 <img src="<?php echo esc_url($france_logo); ?>" alt="Logo France">
             <?php endif; ?>
         </div>
+
     </div>
+
 
     <!-- MENU DESKTOP -->
     <nav class="fms-main-nav">
