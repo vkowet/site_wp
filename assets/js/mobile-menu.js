@@ -5,12 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
     if (toggle && menu) {
         toggle.addEventListener('click', function () {
             menu.classList.toggle('active');
-
-            if (menu.classList.contains('active')) {
-                toggle.innerHTML = '✕';
-            } else {
-                toggle.innerHTML = '☰';
-            }
+            toggle.innerHTML = menu.classList.contains('active') ? '✕' : '☰';
         });
     }
+
+    const parents = document.querySelectorAll('.fms-mobile-menu .menu-item-has-children > a');
+
+    parents.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const parent = this.parentElement;
+            parent.classList.toggle('submenu-open');
+        });
+    });
 });
