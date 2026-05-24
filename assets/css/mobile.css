@@ -1,7 +1,10 @@
+/* MOBILE CSS - corrigé */
+
 .fms-mobile-header,
 .fms-mobile-menu,
-.fms-mobile-overlay {
-    display: none;
+.fms-mobile-overlay,
+.fms-mobile-title {
+    display: none !important;
 }
 
 @media (max-width: 992px) {
@@ -19,6 +22,33 @@
         background: #16324f;
         padding: 12px 15px;
         color: white;
+    }
+
+    .fms-mobile-logo img {
+        max-height: 40px;
+        width: auto;
+    }
+
+    .fms-mobile-title {
+        display: block !important;
+        flex: 1;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.2;
+        margin: 0 10px;
+    }
+
+    .fms-mobile-title span {
+        display: block;
+    }
+
+    .fms-mobile-toggle {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
     }
 
     .fms-mobile-menu {
