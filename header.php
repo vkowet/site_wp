@@ -8,7 +8,7 @@
 <body <?php body_class(); ?>>
 
 <?php
-$world_logo = fms_get_theme_image_url('fms_world_logo');
+$world_logo  = fms_get_theme_image_url('fms_world_logo');
 $france_logo = fms_get_theme_image_url('fms_france_logo');
 ?>
 
@@ -37,18 +37,18 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
         </div>
     </div>
 
-    <!-- TOP MENU -->
+    <!-- TOP MENU DESKTOP -->
     <div class="fms-topbar">
         <?php
         wp_nav_menu([
             'theme_location' => 'top-menu',
-            'container' => false,
-            'fallback_cb' => false,
+            'container'      => false,
+            'fallback_cb'    => false,
         ]);
         ?>
     </div>
 
-    <!-- BRANDING -->
+    <!-- BRANDING DESKTOP -->
     <div class="fms-branding">
         <div class="fms-brand-logo left">
             <?php if ($world_logo): ?>
@@ -73,19 +73,8 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
         <?php
         wp_nav_menu([
             'theme_location' => 'primary-menu',
-            'container' => false,
-            'fallback_cb' => false,
-        ]);
-        ?>
-    </nav>
-
-    <!-- MENU MOBILE -->
-    <nav class="fms-mobile-menu">
-        <?php
-        wp_nav_menu([
-            'theme_location' => 'primary-menu',
-            'container' => false,
-            'fallback_cb' => false,
+            'container'      => false,
+            'fallback_cb'    => false,
         ]);
         ?>
     </nav>
