@@ -1,51 +1,28 @@
-/* neutralisation desktop */
 .fms-mobile-header,
 .fms-mobile-menu,
 .fms-mobile-overlay {
     display: none;
 }
+
 @media (max-width: 992px) {
 
     .fms-topbar,
     .fms-branding,
     .fms-main-nav {
-        display: none;
+        display: none !important;
     }
 
     .fms-mobile-header {
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: space-between;
         background: #16324f;
         padding: 12px 15px;
         color: white;
     }
-.fms-mobile-menu {
-    display: block;
-}
-    .fms-mobile-logo img {
-        max-height: 40px;
-        width: auto;
-    }
-
-    .fms-mobile-title {
-        flex: 1;
-        text-align: center;
-        font-size: 13px;
-        font-weight: 600;
-        line-height: 1.2;
-        margin: 0 10px;
-    }
-
-    .fms-mobile-toggle {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 28px;
-        cursor: pointer;
-    }
 
     .fms-mobile-menu {
+        display: block !important;
         position: fixed;
         top: 0;
         right: -100%;
@@ -57,51 +34,34 @@
         transition: right 0.3s ease;
         z-index: 9999;
         overflow-y: auto;
-        box-shadow: -4px 0 20px rgba(0,0,0,0.25);
     }
 
     .fms-mobile-menu.active {
         right: 0;
     }
 
-    .fms-mobile-menu ul {
+    .fms-mobile-menu ul,
+    .fms-mobile-menu li {
         list-style: none;
         margin: 0;
         padding: 0;
     }
 
-    .fms-mobile-menu li {
-        margin-bottom: 10px;
-    }
-
     .fms-mobile-menu a {
-        color: white;
-        text-decoration: none;
         display: block;
+        color: white;
         padding: 12px;
+        text-decoration: none;
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     .fms-mobile-menu .sub-menu {
         display: none;
         margin-left: 15px;
-        margin-top: 8px;
-        background: rgba(255,255,255,0.05);
-        border-left: 2px solid rgba(255,255,255,0.2);
     }
 
     .fms-mobile-menu .menu-item-has-children.submenu-open > .sub-menu {
         display: block;
-    }
-
-    .fms-mobile-menu .menu-item-has-children > a::after {
-        content: "▾";
-        float: right;
-        font-size: 12px;
-    }
-
-    .fms-mobile-menu .menu-item-has-children.submenu-open > a::after {
-        content: "▴";
     }
 
     .fms-mobile-overlay {
@@ -111,7 +71,6 @@
         z-index: 9998;
         opacity: 0;
         visibility: hidden;
-        transition: 0.3s ease;
     }
 
     .fms-mobile-overlay.active {
