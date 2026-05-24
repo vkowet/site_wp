@@ -185,3 +185,21 @@ body { margin:0; font-family: Arial, sans-serif; color:#1d3557; }
 .fms-mobile-menu .menu-item-has-children.submenu-open > a::after {
     content: "▴";
 }
+.fms-mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.fms-mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.fms-menu-open {
+    overflow: hidden;
+}
