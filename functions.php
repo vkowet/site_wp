@@ -48,6 +48,7 @@ add_action('customize_register', 'fms_customize_register');
 require get_template_directory() . '/includes/hero-slider-settings.php';
 require get_template_directory() . '/includes/world-presence-cpt.php';
 require get_template_directory() . '/includes/world-presence-fields.php';
+require get_template_directory() . '/includes/theme-options.php';
 
 function fms_get_theme_image_url($setting_name) {
     $attachment_id = get_theme_mod($setting_name);
