@@ -1,0 +1,45 @@
+.fms-vocation-section {
+    background: url('/wp-content/uploads/2025/05/vocation-bg.jpg') center/cover no-repeat;
+    padding: 120px 20px;
+    position: relative;
+}
+
+.fms-vocation-overlay {
+    background: rgba(22, 50, 79, 0.78);
+    padding: 80px 20px;
+    border-radius: 18px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.fms-vocation-content {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.fms-vocation-content h2 {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+}
+
+.fms-vocation-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.fms-vocation-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: white;
+    color: #16324f;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.fms-vocation-btn:hover {
+    background: #f4f8fb;
+}
