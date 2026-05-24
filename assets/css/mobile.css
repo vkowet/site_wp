@@ -1,3 +1,9 @@
+/* neutralisation desktop */
+.fms-mobile-header,
+.fms-mobile-menu,
+.fms-mobile-overlay {
+    display: none;
+}
 @media (max-width: 992px) {
 
     .fms-topbar,
