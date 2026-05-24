@@ -1,0 +1,46 @@
+.fms-stats-section {
+    background: #f4f8fb;
+    padding: 70px 20px;
+}
+
+.fms-stats-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.fms-stat-card {
+    background: white;
+    padding: 35px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.fms-stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #16324f;
+    margin-bottom: 10px;
+}
+
+.fms-stat-card p {
+    margin: 0;
+    font-size: 1rem;
+    color: #4a6572;
+}
+
+@media (max-width: 992px) {
+    .fms-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .fms-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
