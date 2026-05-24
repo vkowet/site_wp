@@ -80,14 +80,6 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
     </nav>
 
     <!-- MOBILE MENU PANEL -->
-    <nav class="fms-mobile-menu">
-        <?php
-        wp_nav_menu([
-            'theme_location' => 'primary-menu',
-            'container' => false,
-            'fallback_cb' => false,
-        ]);
-        ?>
-    </nav>
+<nav class="fms-mobile-menu">
 
 </header>
