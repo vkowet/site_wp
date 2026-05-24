@@ -20,7 +20,9 @@
         padding: 12px 15px;
         color: white;
     }
-
+.fms-mobile-menu {
+    display: block;
+}
     .fms-mobile-logo img {
         max-height: 40px;
         width: auto;
