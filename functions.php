@@ -43,3 +43,14 @@ function fms_get_theme_image_url($setting_name) {
     if (!$attachment_id) return '';
     return wp_get_attachment_image_url($attachment_id, 'full');
 }
+
+function fms_enqueue_mobile_menu_script() {
+    wp_enqueue_script(
+        'fms-mobile-menu',
+        get_template_directory_uri() . '/assets/js/mobile-menu.js',
+        array(),
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'fms_enqueue_mobile_menu_script');
