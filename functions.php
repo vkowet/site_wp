@@ -72,3 +72,21 @@ function fms_enqueue_mobile_assets() {
     );
 }
 add_action('wp_enqueue_scripts', 'fms_enqueue_mobile_assets');
+
+function fms_enqueue_stats_assets() {
+    wp_enqueue_style(
+        'fms-stats',
+        get_template_directory_uri() . '/assets/css/stats.css',
+        array(),
+        null
+    );
+
+    wp_enqueue_script(
+        'fms-stats',
+        get_template_directory_uri() . '/assets/js/stats.js',
+        array(),
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'fms_enqueue_stats_assets');
