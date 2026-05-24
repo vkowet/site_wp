@@ -33,4 +33,5 @@ $link=get_theme_mod('fms_slide_'.$i.'_button_link','#'); ?>
 <?php get_template_part('template-parts/home-message'); ?>
 <?php get_template_part('template-parts/home-foundress'); ?>
 <?php get_template_part('template-parts/home-world-presence'); ?>
+<?php get_template_part('template-parts/home-stats'); ?>
 <?php get_footer(); ?>
