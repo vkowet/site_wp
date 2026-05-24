@@ -100,3 +100,13 @@ function fms_enqueue_news_assets() {
     );
 }
 add_action('wp_enqueue_scripts', 'fms_enqueue_news_assets');
+
+function fms_enqueue_vocation_assets() {
+    wp_enqueue_style(
+        'fms-vocation',
+        get_template_directory_uri() . '/assets/css/vocation.css',
+        array(),
+        null
+    );
+}
+add_action('wp_enqueue_scripts', 'fms_enqueue_vocation_assets');
