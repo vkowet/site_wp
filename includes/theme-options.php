@@ -22,6 +22,19 @@ function fms_register_theme_options() {
     register_setting('fms_theme_options_group', 'fms_vocation_button_link');
     register_setting('fms_theme_options_group', 'fms_vocation_bg');
 
+    /* FOOTER */
+    register_setting('fms_theme_options_group', 'fms_footer_name');
+    register_setting('fms_theme_options_group', 'fms_footer_address1');
+    register_setting('fms_theme_options_group', 'fms_footer_address2');
+    register_setting('fms_theme_options_group', 'fms_footer_city');
+    register_setting('fms_theme_options_group', 'fms_footer_phone');
+    register_setting('fms_theme_options_group', 'fms_footer_email');
+    register_setting('fms_theme_options_group', 'fms_footer_facebook');
+    register_setting('fms_theme_options_group', 'fms_footer_youtube');
+    register_setting('fms_theme_options_group', 'fms_footer_instagram');
+    register_setting('fms_theme_options_group', 'fms_footer_world_link');
+    register_setting('fms_theme_options_group', 'fms_footer_copyright');
+    register_setting('fms_theme_options_group', 'fms_footer_bottom_text');
 }
 add_action('admin_init', 'fms_register_theme_options');
 
@@ -43,6 +56,7 @@ function fms_theme_options_page() {
             <?php settings_fields('fms_theme_options_group'); ?>
             <?php do_settings_sections('fms_theme_options_group'); ?>
 
+            <!-- VOCATION -->
             <div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;">
                 <h2>Homepage — Bloc vocation</h2>
 
@@ -88,7 +102,37 @@ function fms_theme_options_page() {
                             <input type="text" name="fms_vocation_bg"
                                    value="<?php echo esc_attr(get_option('fms_vocation_bg', '/wp-content/uploads/2025/05/vocation-bg.jpg')); ?>"
                                    class="large-text">
-                            <p>Colle l’URL complète de l’image</p>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <!-- FOOTER -->
+            <div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;">
+                <h2>Footer — Coordonnées</h2>
+
+                <table class="form-table">
+
+                    <tr><th>Nom institution</th><td><input type="text" name="fms_footer_name" value="<?php echo esc_attr(get_option('fms_footer_name', 'Sœurs Franciscaines Servantes de Marie')); ?>" class="large-text"></td></tr>
+                    <tr><th>Adresse ligne 1</th><td><input type="text" name="fms_footer_address1" value="<?php echo esc_attr(get_option('fms_footer_address1', 'Généralat')); ?>" class="large-text"></td></tr>
+                    <tr><th>Adresse ligne 2</th><td><input type="text" name="fms_footer_address2" value="<?php echo esc_attr(get_option('fms_footer_address2', '15 rue Monin')); ?>" class="large-text"></td></tr>
+                    <tr><th>Ville</th><td><input type="text" name="fms_footer_city" value="<?php echo esc_attr(get_option('fms_footer_city', '41000 BLOIS')); ?>" class="large-text"></td></tr>
+
+                    <tr><th>Téléphone</th><td><input type="text" name="fms_footer_phone" value="<?php echo esc_attr(get_option('fms_footer_phone', '')); ?>" class="regular-text"></td></tr>
+                    <tr><th>Email</th><td><input type="text" name="fms_footer_email" value="<?php echo esc_attr(get_option('fms_footer_email', '')); ?>" class="regular-text"></td></tr>
+
+                    <tr><th>Facebook</th><td><input type="text" name="fms_footer_facebook" value="<?php echo esc_attr(get_option('fms_footer_facebook', '')); ?>" class="large-text"></td></tr>
+                    <tr><th>YouTube</th><td><input type="text" name="fms_footer_youtube" value="<?php echo esc_attr(get_option('fms_footer_youtube', '')); ?>" class="large-text"></td></tr>
+                    <tr><th>Instagram</th><td><input type="text" name="fms_footer_instagram" value="<?php echo esc_attr(get_option('fms_footer_instagram', '')); ?>" class="large-text"></td></tr>
+                    <tr><th>Site réseau mondial</th><td><input type="text" name="fms_footer_world_link" value="<?php echo esc_attr(get_option('fms_footer_world_link', '')); ?>" class="large-text"></td></tr>
+
+                    <tr><th>Copyright</th><td><input type="text" name="fms_footer_copyright" value="<?php echo esc_attr(get_option('fms_footer_copyright', '© Franciscaines Servantes de Marie')); ?>" class="large-text"></td></tr>
+
+                    <tr>
+                        <th>Texte bas footer</th>
+                        <td>
+                            <textarea name="fms_footer_bottom_text" rows="3" class="large-text"><?php echo esc_textarea(get_option('fms_footer_bottom_text', 'Au service de la mission dans le monde')); ?></textarea>
                         </td>
                     </tr>
 
