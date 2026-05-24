@@ -1,12 +1,15 @@
 <?php
 $news = new WP_Query([
-    'post_type' => 'post',
-    'posts_per_page' => 3
+    'post_type'      => 'post',
+    'posts_per_page' => 3,
+    'post_status'    => 'publish'
 ]);
 
 if ($news->have_posts()) :
 ?>
+
 <section class="fms-news-section">
+
     <h2>ACTUALITÉS & MISSIONS</h2>
 
     <div class="fms-news-grid">
@@ -24,16 +27,35 @@ if ($news->have_posts()) :
                 <?php endif; ?>
 
                 <div class="fms-news-content">
-                    <span class="fms-news-date"><?php echo get_the_date(); ?></span>
-                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                    <p><?php echo wp_trim_words(get_the_excerpt(), 18); ?></p>
-                    <a href="<?php the_permalink(); ?>" class="fms-news-btn">Lire l’actualité</a>
+
+                    <span class="fms-news-date">
+                        <?php echo esc_html(get_the_date()); ?>
+                    </span>
+
+                    <h3>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php the_title(); ?>
+                        </a>
+                    </h3>
+
+                    <p>
+                        <?php echo esc_html(wp_trim_words(get_the_excerpt(), 18)); ?>
+                    </p>
+
+                    <a href="<?php the_permalink(); ?>" class="fms-news-btn">
+                        Lire l’actualité
+                    </a>
+
                 </div>
 
             </article>
 
-        <?php endwhile; wp_reset_postdata(); ?>
+        <?php endwhile; ?>
+
+        <?php wp_reset_postdata(); ?>
 
     </div>
+
 </section>
+
 <?php endif; ?>
