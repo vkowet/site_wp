@@ -163,3 +163,25 @@ body { margin:0; font-family: Arial, sans-serif; color:#1d3557; }
         margin-left: 15px;
     }
 }
+
+.fms-mobile-menu .sub-menu {
+    display: none;
+    margin-left: 15px;
+    margin-top: 8px;
+    background: rgba(255,255,255,0.05);
+    border-left: 2px solid rgba(255,255,255,0.2);
+}
+
+.fms-mobile-menu .menu-item-has-children.submenu-open > .sub-menu {
+    display: block;
+}
+
+.fms-mobile-menu .menu-item-has-children > a::after {
+    content: "▾";
+    float: right;
+    font-size: 12px;
+}
+
+.fms-mobile-menu .menu-item-has-children.submenu-open > a::after {
+    content: "▴";
+}
