@@ -90,3 +90,13 @@ function fms_enqueue_stats_assets() {
     );
 }
 add_action('wp_enqueue_scripts', 'fms_enqueue_stats_assets');
+
+function fms_enqueue_news_assets() {
+    wp_enqueue_style(
+        'fms-news',
+        get_template_directory_uri() . '/assets/css/news.css',
+        array(),
+        null
+    );
+}
+add_action('wp_enqueue_scripts', 'fms_enqueue_news_assets');
