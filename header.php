@@ -8,8 +8,11 @@
 <body <?php body_class(); ?>>
 
 <?php
-$world_logo  = fms_get_theme_image_url('fms_world_logo');
-$france_logo = fms_get_theme_image_url('fms_france_logo');
+$world_logo  = get_option('fms_header_world_logo', '');
+$france_logo = get_option('fms_header_france_logo', '');
+
+$header_title = get_option('fms_header_title', 'Franciscaines Servantes de Marie');
+$header_slogan = get_option('fms_header_slogan', 'Servir - Apprendre et Éduquer');
 ?>
 
 <header class="fms-header">
@@ -23,8 +26,7 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
         </div>
 
         <div class="fms-mobile-title">
-            <span>Franciscaines</span>
-            <span>Servantes de Marie</span>
+            <span><?php echo esc_html($header_title); ?></span>
         </div>
 
         <div class="fms-mobile-actions">
@@ -57,8 +59,8 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
         </div>
 
         <div class="fms-brand-title">
-            <h1>Franciscaines Servantes de Marie</h1>
-            <p>Servir - Apprendre et Éduquer</p>
+            <h1><?php echo esc_html($header_title); ?></h1>
+            <p><?php echo esc_html($header_slogan); ?></p>
         </div>
 
         <div class="fms-brand-logo right">
