@@ -1,9 +1,8 @@
-/* MOBILE CSS - corrigé */
+/* MOBILE ONLY */
 
 .fms-mobile-header,
 .fms-mobile-menu,
-.fms-mobile-overlay,
-.fms-mobile-title {
+.fms-mobile-overlay {
     display: none !important;
 }
 
@@ -30,7 +29,6 @@
     }
 
     .fms-mobile-title {
-        display: block !important;
         flex: 1;
         text-align: center;
         font-size: 13px;
@@ -51,7 +49,8 @@
         cursor: pointer;
     }
 
-    .fms-mobile-menu {
+    /* IMPORTANT : styles ciblés uniquement DANS le nav mobile */
+    nav.fms-mobile-menu {
         display: block !important;
         position: fixed;
         top: 0;
@@ -66,18 +65,18 @@
         overflow-y: auto;
     }
 
-    .fms-mobile-menu.active {
+    nav.fms-mobile-menu.active {
         right: 0;
     }
 
-    .fms-mobile-menu ul,
-    .fms-mobile-menu li {
+    nav.fms-mobile-menu ul,
+    nav.fms-mobile-menu li {
         list-style: none;
         margin: 0;
         padding: 0;
     }
 
-    .fms-mobile-menu a {
+    nav.fms-mobile-menu a {
         display: block;
         color: white;
         padding: 12px;
@@ -85,12 +84,12 @@
         border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .fms-mobile-menu .sub-menu {
+    nav.fms-mobile-menu .sub-menu {
         display: none;
         margin-left: 15px;
     }
 
-    .fms-mobile-menu .menu-item-has-children.submenu-open > .sub-menu {
+    nav.fms-mobile-menu .menu-item-has-children.submenu-open > .sub-menu {
         display: block;
     }
 
