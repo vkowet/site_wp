@@ -5,14 +5,12 @@ $address2 = get_option('fms_footer_address2', '15 rue Monin');
 $city = get_option('fms_footer_city', '41000 BLOIS');
 $phone = get_option('fms_footer_phone', '');
 $email = get_option('fms_footer_email', '');
-
 $facebook = get_option('fms_footer_facebook', '');
 $youtube = get_option('fms_footer_youtube', '');
 $instagram = get_option('fms_footer_instagram', '');
 $world_link = get_option('fms_footer_world_link', '');
-
 $copyright = get_option('fms_footer_copyright', '© Franciscaines Servantes de Marie');
-$bottom_text = get_option('fms_footer_bottom_text', 'Au service de la mission dans le monde');
+$bottom_text = get_option('fms_footer_bottom_text', 'Site officiel du siège mondial – Blois, France');
 ?>
 
 <footer class="fms-footer">
@@ -25,7 +23,6 @@ $bottom_text = get_option('fms_footer_bottom_text', 'Au service de la mission da
     </div>
 
     <div class="fms-footer-main">
-
         <div class="fms-footer-col fms-footer-identity">
             <h3><?php echo esc_html($name); ?></h3>
             <p class="fms-footer-subtitle"><?php echo esc_html($address1); ?></p>
@@ -50,14 +47,8 @@ $bottom_text = get_option('fms_footer_bottom_text', 'Au service de la mission da
                 <?php echo esc_html($address1); ?><br>
                 <?php echo esc_html($address2); ?><br>
                 <?php echo esc_html($city); ?><br>
-
-                <?php if ($phone): ?>
-                    Tél : <?php echo esc_html($phone); ?><br>
-                <?php endif; ?>
-
-                <?php if ($email): ?>
-                    Email : <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a>
-                <?php endif; ?>
+                <?php if ($phone) : ?>Tél : <?php echo esc_html($phone); ?><br><?php endif; ?>
+                <?php if ($email) : ?>Email : <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a><?php endif; ?>
             </address>
         </div>
 
@@ -66,5 +57,22 @@ $bottom_text = get_option('fms_footer_bottom_text', 'Au service de la mission da
             <ul>
                 <li><a href="<?php echo esc_url(home_url('/faire-un-don')); ?>">Faire un don</a></li>
                 <li><a href="<?php echo esc_url(home_url('/vocations')); ?>">Vocations</a></li>
+                <li><a href="<?php echo esc_url(home_url('/mentions-legales')); ?>">Mentions légales</a></li>
+                <li><a href="<?php echo esc_url(home_url('/politique-de-confidentialite')); ?>">Politique de confidentialité</a></li>
+                <?php if ($world_link) : ?><li><a href="<?php echo esc_url($world_link); ?>" target="_blank">Réseau mondial</a></li><?php endif; ?>
+                <?php if ($facebook) : ?><li><a href="<?php echo esc_url($facebook); ?>" target="_blank">Facebook</a></li><?php endif; ?>
+                <?php if ($youtube) : ?><li><a href="<?php echo esc_url($youtube); ?>" target="_blank">YouTube</a></li><?php endif; ?>
+                <?php if ($instagram) : ?><li><a href="<?php echo esc_url($instagram); ?>" target="_blank">Instagram</a></li><?php endif; ?>
+            </ul>
+        </div>
+    </div>
 
-                <?php if ($world_link):
+    <div class="fms-footer-bottom">
+        <p><?php echo esc_html($copyright); ?> <?php echo esc_html(date('Y')); ?> – Tous droits réservés.</p>
+        <p><?php echo esc_html($bottom_text); ?></p>
+    </div>
+</footer>
+
+<?php wp_footer(); ?>
+</body>
+</html>
