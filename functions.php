@@ -54,3 +54,21 @@ function fms_enqueue_mobile_menu_script() {
     );
 }
 add_action('wp_enqueue_scripts', 'fms_enqueue_mobile_menu_script');
+
+function fms_enqueue_mobile_assets() {
+    wp_enqueue_style(
+        'fms-mobile',
+        get_template_directory_uri() . '/assets/css/mobile.css',
+        array(),
+        null
+    );
+
+    wp_enqueue_script(
+        'fms-mobile',
+        get_template_directory_uri() . '/assets/js/mobile.js',
+        array(),
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'fms_enqueue_mobile_assets');
