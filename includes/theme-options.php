@@ -28,6 +28,19 @@ function fms_register_theme_options() {
     register_setting('fms_theme_options_group', 'fms_vocation_button_link');
     register_setting('fms_theme_options_group', 'fms_vocation_bg');
 
+/* CHIFFRES CLÉS */
+register_setting('fms_theme_options_group', 'fms_stat_1_number');
+register_setting('fms_theme_options_group', 'fms_stat_1_label');
+
+register_setting('fms_theme_options_group', 'fms_stat_2_number');
+register_setting('fms_theme_options_group', 'fms_stat_2_label');
+
+register_setting('fms_theme_options_group', 'fms_stat_3_number');
+register_setting('fms_theme_options_group', 'fms_stat_3_label');
+
+register_setting('fms_theme_options_group', 'fms_stat_4_number');
+register_setting('fms_theme_options_group', 'fms_stat_4_label');
+    
     /* FOOTER */
     register_setting('fms_theme_options_group', 'fms_footer_name');
     register_setting('fms_theme_options_group', 'fms_footer_address1');
