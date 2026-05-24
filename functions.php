@@ -56,6 +56,9 @@ function fms_get_image_url($attachment_id) {
     return wp_get_attachment_image_url($attachment_id, 'full');
 }
 
+function fms_get_theme_image_url($attachment_id) {
+    return fms_get_image_url($attachment_id);
+}
 
 /*
 |--------------------------------------------------------------------------
