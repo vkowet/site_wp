@@ -14,7 +14,6 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
 
 <header class="fms-header">
 
-    <?php if (wp_is_mobile()) : ?>
     <!-- MOBILE HEADER -->
     <div class="fms-mobile-header">
         <div class="fms-mobile-logo left">
@@ -37,9 +36,8 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
             <button class="fms-mobile-toggle" aria-label="Menu">☰</button>
         </div>
     </div>
-    <?php endif; ?>
 
-    <!-- TOP MENU DESKTOP -->
+    <!-- TOP MENU -->
     <div class="fms-topbar">
         <?php
         wp_nav_menu([
@@ -50,7 +48,7 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
         ?>
     </div>
 
-    <!-- BRANDING DESKTOP -->
+    <!-- BRANDING -->
     <div class="fms-branding">
         <div class="fms-brand-logo left">
             <?php if ($world_logo): ?>
@@ -81,8 +79,7 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
         ?>
     </nav>
 
-    <?php if (wp_is_mobile()) : ?>
-    <!-- MOBILE MENU PANEL -->
+    <!-- MENU MOBILE -->
     <nav class="fms-mobile-menu">
         <?php
         wp_nav_menu([
@@ -92,6 +89,5 @@ $france_logo = fms_get_theme_image_url('fms_france_logo');
         ]);
         ?>
     </nav>
-    <?php endif; ?>
 
 </header>
