@@ -42,44 +42,33 @@ function fms_theme_options_page() {
 <?php settings_fields('fms_theme_options_group'); ?>
 
 <?php if ($tab==='homepage') : ?>
-<div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;">
-<h2>Homepage — Chiffres clés</h2>
-<table class="form-table">
-<?php for ($i=1;$i<=4;$i++) : ?>
-<tr>
-<th>Chiffre <?php echo $i; ?></th>
-<td><input type="text" name="fms_stat_<?php echo $i; ?>_number" value="<?php echo esc_attr(get_option('fms_stat_'.$i.'_number','')); ?>" class="regular-text"></td>
-<th>Libellé <?php echo $i; ?></th>
-<td><input type="text" name="fms_stat_<?php echo $i; ?>_label" value="<?php echo esc_attr(get_option('fms_stat_'.$i.'_label','')); ?>" class="regular-text"></td>
-</tr>
-<?php endfor; ?>
-</table>
-</div>
-<div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;">
-<h2>Homepage — Bloc vocation</h2>
-<table class="form-table">
-<tr><th>Titre</th><td><input type="text" name="fms_vocation_title" value="<?php echo esc_attr(get_option('fms_vocation_title','')); ?>" class="large-text"></td></tr>
-<tr><th>Texte</th><td><textarea name="fms_vocation_text" rows="5" class="large-text"><?php echo esc_textarea(get_option('fms_vocation_text','')); ?></textarea></td></tr>
-<tr><th>Texte bouton</th><td><input type="text" name="fms_vocation_button_text" value="<?php echo esc_attr(get_option('fms_vocation_button_text','')); ?>" class="regular-text"></td></tr>
-<tr><th>Lien bouton</th><td><input type="text" name="fms_vocation_button_link" value="<?php echo esc_attr(get_option('fms_vocation_button_link','')); ?>" class="large-text"></td></tr>
-<tr><th>Image de fond URL</th><td><input type="text" name="fms_vocation_bg" value="<?php echo esc_attr(get_option('fms_vocation_bg','')); ?>" class="large-text"></td></tr>
-</table>
-</div>
+<div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;"><h2>Homepage configuré</h2></div>
 <?php endif; ?>
 
 <?php if ($tab==='identity') : ?>
+<div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;"><h2>Identité configurée</h2></div>
+<?php endif; ?>
+
+<?php if ($tab==='footer') : ?>
 <div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;">
-<h2>Identité — Header</h2>
+<h2>Footer — Coordonnées</h2>
 <table class="form-table">
-<tr><th>Titre institution</th><td><input type="text" name="fms_header_title" value="<?php echo esc_attr(get_option('fms_header_title','Franciscaines Servantes de Marie')); ?>" class="large-text"></td></tr>
-<tr><th>Slogan</th><td><input type="text" name="fms_header_slogan" value="<?php echo esc_attr(get_option('fms_header_slogan','Servir - Apprendre et Éduquer')); ?>" class="large-text"></td></tr>
-<tr><th>Logo mondial (URL)</th><td><input type="text" name="fms_header_world_logo" value="<?php echo esc_attr(get_option('fms_header_world_logo','')); ?>" class="large-text"></td></tr>
-<tr><th>Logo France (URL)</th><td><input type="text" name="fms_header_france_logo" value="<?php echo esc_attr(get_option('fms_header_france_logo','')); ?>" class="large-text"></td></tr>
+<tr><th>Nom institution</th><td><input type="text" name="fms_footer_name" value="<?php echo esc_attr(get_option('fms_footer_name','')); ?>" class="large-text"></td></tr>
+<tr><th>Adresse ligne 1</th><td><input type="text" name="fms_footer_address1" value="<?php echo esc_attr(get_option('fms_footer_address1','')); ?>" class="large-text"></td></tr>
+<tr><th>Adresse ligne 2</th><td><input type="text" name="fms_footer_address2" value="<?php echo esc_attr(get_option('fms_footer_address2','')); ?>" class="large-text"></td></tr>
+<tr><th>Ville</th><td><input type="text" name="fms_footer_city" value="<?php echo esc_attr(get_option('fms_footer_city','')); ?>" class="large-text"></td></tr>
+<tr><th>Téléphone</th><td><input type="text" name="fms_footer_phone" value="<?php echo esc_attr(get_option('fms_footer_phone','')); ?>" class="regular-text"></td></tr>
+<tr><th>Email</th><td><input type="text" name="fms_footer_email" value="<?php echo esc_attr(get_option('fms_footer_email','')); ?>" class="regular-text"></td></tr>
+<tr><th>Facebook</th><td><input type="text" name="fms_footer_facebook" value="<?php echo esc_attr(get_option('fms_footer_facebook','')); ?>" class="large-text"></td></tr>
+<tr><th>YouTube</th><td><input type="text" name="fms_footer_youtube" value="<?php echo esc_attr(get_option('fms_footer_youtube','')); ?>" class="large-text"></td></tr>
+<tr><th>Instagram</th><td><input type="text" name="fms_footer_instagram" value="<?php echo esc_attr(get_option('fms_footer_instagram','')); ?>" class="large-text"></td></tr>
+<tr><th>Site réseau mondial</th><td><input type="text" name="fms_footer_world_link" value="<?php echo esc_attr(get_option('fms_footer_world_link','')); ?>" class="large-text"></td></tr>
+<tr><th>Copyright</th><td><input type="text" name="fms_footer_copyright" value="<?php echo esc_attr(get_option('fms_footer_copyright','')); ?>" class="large-text"></td></tr>
+<tr><th>Texte bas footer</th><td><textarea name="fms_footer_bottom_text" rows="3" class="large-text"><?php echo esc_textarea(get_option('fms_footer_bottom_text','')); ?></textarea></td></tr>
 </table>
 </div>
 <?php endif; ?>
 
-<?php if ($tab==='footer') : ?><div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;"><h2>Footer</h2><p>Structure prête.</p></div><?php endif; ?>
 <?php if ($tab==='pages') : ?><div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;"><h2>Pages internes</h2><p>Réglages à venir.</p></div><?php endif; ?>
 <?php if ($tab==='world') : ?><div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;"><h2>Réseau mondial</h2><p>Réglages à venir.</p></div><?php endif; ?>
 
