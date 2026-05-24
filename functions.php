@@ -110,3 +110,15 @@ function fms_enqueue_vocation_assets() {
     );
 }
 add_action('wp_enqueue_scripts', 'fms_enqueue_vocation_assets');
+
+function fms_enqueue_page_assets() {
+    if (is_page()) {
+        wp_enqueue_style(
+            'fms-page',
+            get_template_directory_uri() . '/assets/css/page.css',
+            array(),
+            null
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'fms_enqueue_page_assets');
