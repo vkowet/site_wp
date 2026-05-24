@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (toggle && menu) {
         toggle.addEventListener('click', function () {
             menu.classList.toggle('active');
+
+            if (menu.classList.contains('active')) {
+                toggle.innerHTML = '✕';
+            } else {
+                toggle.innerHTML = '☰';
+            }
         });
     }
 });
