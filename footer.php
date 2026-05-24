@@ -45,7 +45,6 @@ $bottom_text = fms_get_option('footer', 'bottom_text', 'Site officiel du siège 
             <address>
                 <?php echo esc_html($name); ?><br>
                 <?php echo esc_html($address1); ?><br>
-                <?php echo esc_html($address2); ?><br>
                 <?php echo esc_html($city); ?><br>
 
                 <?php if ($phone): ?>
