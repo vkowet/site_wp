@@ -1,25 +1,10 @@
 <section class="fms-stats-section">
     <div class="fms-stats-grid">
-
+        <?php for ($i = 1; $i <= 4; $i++) : ?>
         <div class="fms-stat-card">
-            <span class="fms-stat-number" data-target="17">0</span>
-            <p>Pays de présence</p>
+            <span class="fms-stat-number" data-target="<?php echo esc_attr(get_theme_mod('fms_stat_'.$i.'_number', '0')); ?>">0</span>
+            <p><?php echo esc_html(get_theme_mod('fms_stat_'.$i.'_label', 'Stat')); ?></p>
         </div>
-
-        <div class="fms-stat-card">
-            <span class="fms-stat-number" data-target="850">0</span>
-            <p>Sœurs dans le monde</p>
-        </div>
-
-        <div class="fms-stat-card">
-            <span class="fms-stat-number" data-target="120">0</span>
-            <p>Communautés</p>
-        </div>
-
-        <div class="fms-stat-card">
-            <span class="fms-stat-number" data-target="1854">0</span>
-            <p>Depuis</p>
-        </div>
-
+        <?php endfor; ?>
     </div>
 </section>
