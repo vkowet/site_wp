@@ -13,7 +13,38 @@ function fms_theme_options_page() { $tab = isset($_GET['tab']) ? sanitize_text_f
 <div class="wrap"><h1>Options du thème FMS</h1><h2 class="nav-tab-wrapper"><a href="?page=fms-theme-options&tab=homepage" class="nav-tab <?php echo $tab==='homepage' ? 'nav-tab-active' : ''; ?>">Homepage</a><a href="?page=fms-theme-options&tab=identity" class="nav-tab <?php echo $tab==='identity' ? 'nav-tab-active' : ''; ?>">Identité</a><a href="?page=fms-theme-options&tab=footer" class="nav-tab <?php echo $tab==='footer' ? 'nav-tab-active' : ''; ?>">Footer</a><a href="?page=fms-theme-options&tab=pages" class="nav-tab <?php echo $tab==='pages' ? 'nav-tab-active' : ''; ?>">Pages internes</a><a href="?page=fms-theme-options&tab=world" class="nav-tab <?php echo $tab==='world' ? 'nav-tab-active' : ''; ?>">Réseau mondial</a></h2><form method="post" action="options.php"><?php settings_fields('fms_theme_options_group'); ?>
 <?php if ($tab==='homepage') : ?><div style="background:#fff;padding:30px;border:1px solid #ddd;"><h2>Homepage — Chiffres clés</h2><table class="form-table"><?php for ($i=1;$i<=4;$i++) : ?><tr><th>Chiffre <?php echo $i; ?></th><td><input type="text" name="fms_stat_<?php echo $i; ?>_number" value="<?php echo esc_attr(get_option('fms_stat_'.$i.'_number','')); ?>"></td><th>Libellé <?php echo $i; ?></th><td><input type="text" name="fms_stat_<?php echo $i; ?>_label" value="<?php echo esc_attr(get_option('fms_stat_'.$i.'_label','')); ?>"></td></tr><?php endfor; ?></table></div><?php endif; ?>
 <?php if ($tab==='identity') : ?><div style="background:#fff;padding:30px;border:1px solid #ddd;"><h2>Identité — Header</h2><table class="form-table"><tr><th>Titre</th><td><input type="text" name="fms_header_title" value="<?php echo esc_attr(get_option('fms_header_title','')); ?>"></td></tr><tr><th>Slogan</th><td><input type="text" name="fms_header_slogan" value="<?php echo esc_attr(get_option('fms_header_slogan','')); ?>"></td></tr><tr><th>Logo mondial</th><td><?php fms_image_field('fms_header_world_logo', get_option('fms_header_world_logo','')); ?></td></tr><tr><th>Logo France</th><td><?php fms_image_field('fms_header_france_logo', get_option('fms_header_france_logo','')); ?></td></tr></table></div><?php endif; ?>
-<?php if ($tab==='footer') : ?><div style="background:#fff;padding:30px;border:1px solid #ddd;"><h2>Footer</h2><p>Footer complet conservé.</p></div><?php endif; ?>
-<?php if ($tab==='pages') : ?><div style="background:#fff;padding:30px;border:1px solid #ddd;"><h2>Pages internes</h2><table class="form-table"><tr><th>Titre</th><td><input type="text" name="fms_page_default_title" value="<?php echo esc_attr(get_option('fms_page_default_title','')); ?>"></td></tr><tr><th>Sous-titre</th><td><input type="text" name="fms_page_subtitle" value="<?php echo esc_attr(get_option('fms_page_subtitle','')); ?>"></td></tr><tr><th>Image fond</th><td><?php fms_image_field('fms_page_bg', get_option('fms_page_bg','')); ?></td></tr></table></div><?php endif; ?>
+<?php if ($tab==='footer') : ?>
+<div style="background:#fff;padding:30px;border:1px solid #ddd;">
+    <h2>Footer complet</h2>
+    <table class="form-table">
+
+        <tr><th>Nom institution</th><td><input type="text" name="fms_footer_name" value="<?php echo esc_attr(get_option('fms_footer_name','')); ?>" class="large-text"></td></tr>
+
+        <tr><th>Adresse 1</th><td><input type="text" name="fms_footer_address1" value="<?php echo esc_attr(get_option('fms_footer_address1','')); ?>" class="large-text"></td></tr>
+
+        <tr><th>Adresse 2</th><td><input type="text" name="fms_footer_address2" value="<?php echo esc_attr(get_option('fms_footer_address2','')); ?>" class="large-text"></td></tr>
+
+        <tr><th>Ville</th><td><input type="text" name="fms_footer_city" value="<?php echo esc_attr(get_option('fms_footer_city','')); ?>" class="large-text"></td></tr>
+
+        <tr><th>Téléphone</th><td><input type="text" name="fms_footer_phone" value="<?php echo esc_attr(get_option('fms_footer_phone','')); ?>"></td></tr>
+
+        <tr><th>Email</th><td><input type="text" name="fms_footer_email" value="<?php echo esc_attr(get_option('fms_footer_email','')); ?>"></td></tr>
+
+        <tr><th>Facebook</th><td><input type="text" name="fms_footer_facebook" value="<?php echo esc_attr(get_option('fms_footer_facebook','')); ?>"></td></tr>
+
+        <tr><th>YouTube</th><td><input type="text" name="fms_footer_youtube" value="<?php echo esc_attr(get_option('fms_footer_youtube','')); ?>"></td></tr>
+
+        <tr><th>Instagram</th><td><input type="text" name="fms_footer_instagram" value="<?php echo esc_attr(get_option('fms_footer_instagram','')); ?>"></td></tr>
+
+        <tr><th>Site mondial</th><td><input type="text" name="fms_footer_world_link" value="<?php echo esc_attr(get_option('fms_footer_world_link','')); ?>" class="large-text"></td></tr>
+
+        <tr><th>Copyright</th><td><input type="text" name="fms_footer_copyright" value="<?php echo esc_attr(get_option('fms_footer_copyright','')); ?>" class="large-text"></td></tr>
+
+        <tr><th>Texte bas footer</th><td><textarea name="fms_footer_bottom_text" rows="3" class="large-text"><?php echo esc_textarea(get_option('fms_footer_bottom_text','')); ?></textarea></td></tr>
+
+    </table>
+</div>
+<?php endif; ?>
+                                   <?php if ($tab==='pages') : ?><div style="background:#fff;padding:30px;border:1px solid #ddd;"><h2>Pages internes</h2><table class="form-table"><tr><th>Titre</th><td><input type="text" name="fms_page_default_title" value="<?php echo esc_attr(get_option('fms_page_default_title','')); ?>"></td></tr><tr><th>Sous-titre</th><td><input type="text" name="fms_page_subtitle" value="<?php echo esc_attr(get_option('fms_page_subtitle','')); ?>"></td></tr><tr><th>Image fond</th><td><?php fms_image_field('fms_page_bg', get_option('fms_page_bg','')); ?></td></tr></table></div><?php endif; ?>
 <?php if ($tab==='world') : ?><div style="background:#fff;padding:30px;border:1px solid #ddd;"><h2>Réseau mondial</h2><p>Structure prête.</p></div><?php endif; ?>
 <?php submit_button(); ?></form></div><?php }
