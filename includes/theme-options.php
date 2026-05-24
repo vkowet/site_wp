@@ -171,6 +171,43 @@ function fms_theme_options_page() {
             </table>
         </div>
 
+        <!-- CHIFFRES CLÉS -->
+<div style="background:#fff;padding:30px;margin-top:20px;border:1px solid #ddd;">
+    <h2>Homepage — Chiffres clés</h2>
+
+    <table class="form-table">
+
+        <tr>
+            <th>Chiffre 1</th>
+            <td><input type="text" name="fms_stat_1_number" value="<?php echo esc_attr(get_option('fms_stat_1_number', '17')); ?>" class="regular-text"></td>
+            <th>Libellé 1</th>
+            <td><input type="text" name="fms_stat_1_label" value="<?php echo esc_attr(get_option('fms_stat_1_label', 'Pays de présence')); ?>" class="regular-text"></td>
+        </tr>
+
+        <tr>
+            <th>Chiffre 2</th>
+            <td><input type="text" name="fms_stat_2_number" value="<?php echo esc_attr(get_option('fms_stat_2_number', '850')); ?>" class="regular-text"></td>
+            <th>Libellé 2</th>
+            <td><input type="text" name="fms_stat_2_label" value="<?php echo esc_attr(get_option('fms_stat_2_label', 'Sœurs dans le monde')); ?>" class="regular-text"></td>
+        </tr>
+
+        <tr>
+            <th>Chiffre 3</th>
+            <td><input type="text" name="fms_stat_3_number" value="<?php echo esc_attr(get_option('fms_stat_3_number', '120')); ?>" class="regular-text"></td>
+            <th>Libellé 3</th>
+            <td><input type="text" name="fms_stat_3_label" value="<?php echo esc_attr(get_option('fms_stat_3_label', 'Communautés')); ?>" class="regular-text"></td>
+        </tr>
+
+        <tr>
+            <th>Chiffre 4</th>
+            <td><input type="text" name="fms_stat_4_number" value="<?php echo esc_attr(get_option('fms_stat_4_number', '1854')); ?>" class="regular-text"></td>
+            <th>Libellé 4</th>
+            <td><input type="text" name="fms_stat_4_label" value="<?php echo esc_attr(get_option('fms_stat_4_label', 'Depuis')); ?>" class="regular-text"></td>
+        </tr>
+
+    </table>
+</div>
+        
         <?php submit_button(); ?>
 
     </form>
