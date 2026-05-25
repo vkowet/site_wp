@@ -1,19 +1,23 @@
 jQuery(document).ready(function ($) {
 
-    $('.fms-upload-image').on('click', function (e) {
+    let frame;
+
+    $(document).on('click', '.fms-upload-image', function (e) {
         e.preventDefault();
 
-        const button = $(this);
-        const imageField = button.prev('.fms-image-id');
-        const preview = button.siblings('.fms-image-preview');
+        const wrapper = $(this).closest('p');
+        const imageField = wrapper.find('.fms-image-id');
+        const preview = wrapper.find('.fms-image-preview');
 
-        const frame = wp.media({
+        frame = wp.media({
             title: 'Choisir une image',
             button: {
                 text: 'Utiliser cette image'
             },
             multiple: false
         });
+
+        frame.off('select');
 
         frame.on('select', function () {
             const attachment = frame.state().get('selection').first().toJSON();
@@ -28,12 +32,12 @@ jQuery(document).ready(function ($) {
         frame.open();
     });
 
-    $('.fms-remove-image').on('click', function (e) {
+    $(document).on('click', '.fms-remove-image', function (e) {
         e.preventDefault();
 
-        const button = $(this);
-        const imageField = button.siblings('.fms-image-id');
-        const preview = button.siblings('.fms-image-preview');
+        const wrapper = $(this).closest('p');
+        const imageField = wrapper.find('.fms-image-id');
+        const preview = wrapper.find('.fms-image-preview');
 
         imageField.val('');
         preview.html('');
