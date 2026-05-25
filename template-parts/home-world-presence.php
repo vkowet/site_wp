@@ -52,9 +52,9 @@ if ($query->have_posts()) : ?>
                     <div class="fms-world-card-front fms-front-image-mode"
                          style="background-image:url('<?php echo esc_url($front_image); ?>'); background-size:cover; background-position:center;">
 
-                        <div class="fms-world-image-overlay">
-                            <h3><?php the_title(); ?></h3>
-                        </div>
+                        <div class="fms-world-image-title">
+    <h3><?php the_title(); ?></h3>
+</div>
 
                     </div>
 
