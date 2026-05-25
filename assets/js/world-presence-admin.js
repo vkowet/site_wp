@@ -1,6 +1,6 @@
-jQuery(document).ready(function ($) {
+jQuery(function ($) {
 
-    let frame;
+    let mediaFrame;
 
     $(document).on('click', '.fms-upload-image', function (e) {
         e.preventDefault();
@@ -9,7 +9,8 @@ jQuery(document).ready(function ($) {
         const imageField = wrapper.find('.fms-image-id');
         const preview = wrapper.find('.fms-image-preview');
 
-        frame = wp.media({
+        // Une seule instance stable
+        mediaFrame = wp.media({
             title: 'Choisir une image',
             button: {
                 text: 'Utiliser cette image'
@@ -17,30 +18,33 @@ jQuery(document).ready(function ($) {
             multiple: false
         });
 
-        frame.off('select');
-
-        frame.on('select', function () {
-            const attachment = frame.state().get('selection').first().toJSON();
+        mediaFrame.on('select', function () {
+            const attachment = mediaFrame
+                .state()
+                .get('selection')
+                .first()
+                .toJSON();
 
             imageField.val(attachment.id);
 
             preview.html(
                 '<img src="' + attachment.url + '" style="max-width:150px;height:auto;" />'
             );
+
+            mediaFrame.close();
         });
 
-        frame.open();
+        mediaFrame.open();
     });
+
 
     $(document).on('click', '.fms-remove-image', function (e) {
         e.preventDefault();
 
         const wrapper = $(this).closest('p');
-        const imageField = wrapper.find('.fms-image-id');
-        const preview = wrapper.find('.fms-image-preview');
 
-        imageField.val('');
-        preview.html('');
+        wrapper.find('.fms-image-id').val('');
+        wrapper.find('.fms-image-preview').html('');
     });
 
 });
