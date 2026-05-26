@@ -62,12 +62,6 @@ $tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'homepage';
 <h1>Centre de pilotage FMS</h1>
 
 <h2 class="nav-tab-wrapper">
-    <a href="?page=fms-theme-options&tab=homepage" class="nav-tab <?php echo $tab==='homepage' ? 'nav-tab-active' : ''; ?>">Homepage</a>
-    <a href="?page=fms-theme-options&tab=identity" class="nav-tab <?php echo $tab==='identity' ? 'nav-tab-active' : ''; ?>">Identité</a>
-    <a href="?page=fms-theme-options&tab=footer" class="nav-tab <?php echo $tab==='footer' ? 'nav-tab-active' : ''; ?>">Footer</a>
-    <a href="?page=fms-theme-options&tab=pages" class="nav-tab <?php echo $tab==='pages' ? 'nav-tab-active' : ''; ?>">Pages internes</a>
-    <a href="?page=fms-theme-options&tab=world" class="nav-tab <?php echo $tab==='world' ? 'nav-tab-active' : ''; ?>">Réseau mondial</a>
-</h2>
 
 <form method="post" action="options.php">
 <?php settings_fields('fms_theme_options_group'); ?>
