@@ -201,6 +201,75 @@ function fms_admin_media_assets($hook) {
 }
 add_action('admin_enqueue_scripts', 'fms_admin_media_assets');
 
+/* AUTO CREATE SYSTEM PAGES */
+function fms_create_default_pages() {
+
+    if (get_option('fms_default_pages_created')) return;
+
+    $pages = [
+
+        [
+            'title' => 'Mentions légales',
+            'slug' => 'mentions-legales',
+            'content' => 'La congrégation des Sœurs Franciscaines Servantes de Marie – Généralat, dont le siège mondial est situé à Blois, édite le présent site internet.
+
+Éditeur : Sœurs Franciscaines Servantes de Marie
+Généralat
+15 rue Monin
+41000 BLOIS – France
+
+L’ensemble des contenus du site est protégé par le droit d’auteur. Toute reproduction sans autorisation est interdite.'
+        ],
+
+        [
+            'title' => 'Politique de confidentialité',
+            'slug' => 'politique-de-confidentialite',
+            'content' => 'Les Sœurs Franciscaines Servantes de Marie attachent une grande importance à la protection des données personnelles.
+
+Les données collectées via ce site servent uniquement à répondre aux demandes, assurer la sécurité et améliorer le service.'
+        ],
+
+        [
+            'title' => 'Plan du site',
+            'slug' => 'plan-du-site',
+            'content' => 'Accueil
+Mot de la Mère Supérieure Générale
+Histoire de la Fondatrice
+Présence dans le monde
+Actualités & Missions
+Vocations
+Contact
+Mentions légales
+Politique de confidentialité'
+        ],
+
+        [
+            'title' => 'Faire un don',
+            'slug' => 'faire-un-don',
+            'content' => 'Votre soutien permet à la congrégation des Sœurs Franciscaines Servantes de Marie de poursuivre ses missions d’éducation, de formation et de solidarité.
+
+Merci pour votre soutien.'
+        ]
+
+    ];
+
+    foreach ($pages as $page) {
+
+        if (!get_page_by_path($page['slug'])) {
+
+            wp_insert_post([
+                'post_title'   => $page['title'],
+                'post_name'    => $page['slug'],
+                'post_content' => $page['content'],
+                'post_status'  => 'publish',
+                'post_type'    => 'page'
+            ]);
+        }
+    }
+
+    update_option('fms_default_pages_created', 1);
+}
+add_action('init', 'fms_create_default_pages');
 
 /*
 |--------------------------------------------------------------------------
