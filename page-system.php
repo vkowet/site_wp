@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: FMS System Page
+*/
 get_header();
 
 $slug = get_post_field('post_name', get_the_ID());
