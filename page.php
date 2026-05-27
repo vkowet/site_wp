@@ -31,7 +31,7 @@ $selected_pages = fms_get_option(
     []
 );
 
-$use_custom_hero = true;
+$use_custom_hero = false;
 
 if (!empty($selected_pages)) {
 
