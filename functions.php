@@ -171,6 +171,13 @@ function fms_enqueue_assets() {
         $version,
         true
     );
+
+    wp_enqueue_style(
+    'fms-system-pages',
+    get_template_directory_uri() . '/assets/css/system-pages.css',
+    [],
+    $version
+);
 }
 add_action('wp_enqueue_scripts', 'fms_enqueue_assets');
 
