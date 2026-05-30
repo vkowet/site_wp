@@ -42,11 +42,42 @@ $header_slogan = fms_get_option('identity', 'slogan', 'Servir - Apprendre et Éd
                 <?php endif; ?>
             </div>
 
-            <button class="fms-mobile-toggle" aria-label="Menu">☰</button>
+            <button class="fms-mobile-toggle" aria-label="Menu">
+                ☰
+            </button>
 
         </div>
+
     </div>
 
+    <!-- MENU MOBILE -->
+    <nav class="fms-mobile-menu">
+
+        <?php
+        wp_nav_menu([
+            'theme_location' => has_nav_menu('mobile-menu')
+                ? 'mobile-menu'
+                : 'primary-menu',
+            'container'      => false,
+            'fallback_cb'    => false,
+        ]);
+        ?>
+
+        <div class="fms-mobile-cta">
+
+            <a href="<?php echo esc_url(home_url('/faire-un-don')); ?>"
+               class="fms-mobile-donate">
+                Faire un don
+            </a>
+
+            <a href="<?php echo esc_url(home_url('/contact')); ?>"
+               class="fms-mobile-contact">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
 
     <!-- TOP MENU -->
     <div class="fms-topbar">
@@ -58,7 +89,6 @@ $header_slogan = fms_get_option('identity', 'slogan', 'Servir - Apprendre et Éd
         ]);
         ?>
     </div>
-
 
     <!-- BRANDING -->
     <div class="fms-branding">
@@ -81,7 +111,6 @@ $header_slogan = fms_get_option('identity', 'slogan', 'Servir - Apprendre et Éd
         </div>
 
     </div>
-
 
     <!-- MENU DESKTOP -->
     <nav class="fms-main-nav">
