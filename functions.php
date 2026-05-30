@@ -20,6 +20,9 @@ function fms_theme_setup() {
 }
 add_action('after_setup_theme', 'fms_theme_setup');
 
+add_action('admin_notices', function () {
+    echo '<div class="notice notice-success"><p>MENU MOBILE CHARGE</p></div>';
+});
 
 /*
 |--------------------------------------------------------------------------
