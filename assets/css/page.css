@@ -83,11 +83,51 @@
 }
 
 @media (max-width: 768px) {
+
+    .fms-page-hero {
+        padding: 20px 12px;
+        min-height: 42vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .fms-page-hero-overlay {
+        padding: 35px 24px;
+        border-radius: 12px;
+    }
+
+    .fms-page-hero-content {
+        text-align: left;
+    }
+
+    .fms-breadcrumb {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 14px;
+        opacity: 0.95;
+    }
+
     .fms-page-hero h1 {
-        font-size: 2rem;
+        font-size: 2.8rem;
+        line-height: 1.08;
+        font-weight: 700;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+    }
+
+    .fms-page-hero-content p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        max-width: 100%;
     }
 
     .fms-page-content {
         padding: 50px 20px;
     }
+
+    .fms-page-container {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
 }
