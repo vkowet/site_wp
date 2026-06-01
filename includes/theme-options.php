@@ -307,8 +307,6 @@ fms_section_card_end();
 
 <?php endif; ?>
 
-<?php endif; ?>
-
 <?php if($tab==='governance'): ?>
 
 <?php
