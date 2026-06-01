@@ -470,8 +470,6 @@ fms_section_card_end();
 
 <?php if($tab==='identity'): ?>
     
-<?php if($tab==='identity'): ?>
-    
 <?php
 fms_section_card_start('Identité du site');
 ?>
