@@ -95,7 +95,6 @@ $hero_image = fms_get_theme_image_url(get_theme_mod('fms_hero_image'));
 
 <?php get_template_part('template-parts/home-institution'); ?>
 <?php get_template_part('template-parts/home-message'); ?>
-<?php get_template_part('template-parts/home-governance'); ?>
 <?php get_template_part('template-parts/home-foundress'); ?>
 <?php get_template_part('template-parts/home-stats'); ?>
 <?php get_template_part('template-parts/home-world-presence'); ?>
