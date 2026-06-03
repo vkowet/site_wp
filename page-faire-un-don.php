@@ -1,41 +1,45 @@
 <?php
+/**
+ * Template : Faire un don
+ */
+
 get_header();
 
 $title = fms_get_option(
-    'system',
-    'donation_title',
+    'donation',
+    'title',
     get_the_title()
 );
 
 $content = wpautop(
     fms_get_option(
-        'system',
-        'donation_content',
+        'donation',
+        'content',
         get_the_content()
     )
 );
 
 $bank = fms_get_option(
-    'system',
-    'donation_bank',
+    'donation',
+    'bank',
     ''
 );
 
 $tax = fms_get_option(
-    'system',
-    'donation_tax',
+    'donation',
+    'tax',
     ''
 );
 
 $button = fms_get_option(
-    'system',
-    'donation_button',
+    'donation',
+    'button',
     'Nous contacter'
 );
 
 $link = fms_get_option(
-    'system',
-    'donation_link',
+    'donation',
+    'link',
     '/contact'
 );
 ?>
@@ -61,64 +65,92 @@ $link = fms_get_option(
 </section>
 
 <section class="fms-system-page-content fms-donation-page">
+
     <div class="fms-system-page-container">
 
-        <div class="fms-donation-intro">
-            <?php echo wp_kses_post($content); ?>
-        </div>
+        <?php if (!empty($content)) : ?>
+            <div class="fms-donation-intro">
+                <?php echo wp_kses_post($content); ?>
+            </div>
+        <?php endif; ?>
 
         <div class="fms-donation-values">
-            <article class="fms-donation-card">
+
+            <div class="fms-donation-card">
                 <h2>Accompagner</h2>
                 <p>
-                    Votre don soutient les missions éducatives, sociales
-                    et pastorales portées par la congrégation.
+                    Votre soutien permet aux Sœurs Franciscaines
+                    Servantes de Marie de poursuivre leurs missions
+                    éducatives, pastorales et sociales.
                 </p>
-            </article>
+            </div>
 
-            <article class="fms-donation-card">
+            <div class="fms-donation-card">
                 <h2>Préserver</h2>
                 <p>
-                    Votre générosité contribue à l’entretien des lieux de vie,
-                    des maisons communautaires et du patrimoine.
+                    Vos dons contribuent à l'entretien des maisons,
+                    des lieux d'accueil et du patrimoine de la
+                    congrégation.
                 </p>
-            </article>
+            </div>
 
-            <article class="fms-donation-card">
+            <div class="fms-donation-card">
                 <h2>Transmettre</h2>
                 <p>
-                    Vous participez à la transmission des valeurs franciscaines :
-                    service, fraternité, simplicité et espérance.
+                    Vous participez à la transmission des valeurs
+                    franciscaines de fraternité, de service
+                    et d'espérance.
                 </p>
-            </article>
+            </div>
+
         </div>
 
         <?php if (!empty($bank)) : ?>
+
             <div class="fms-donation-box">
-                <h2>Coordonnées pour effectuer un don</h2>
+
+                <h2>
+                    Coordonnées bancaires
+                </h2>
+
                 <div class="fms-donation-text">
                     <?php echo wpautop(wp_kses_post($bank)); ?>
                 </div>
+
             </div>
+
         <?php endif; ?>
 
         <?php if (!empty($tax)) : ?>
-            <div class="fms-donation-box fms-donation-tax">
-                <h2>Informations fiscales</h2>
+
+            <div class="fms-donation-box">
+
+                <h2>
+                    Informations fiscales
+                </h2>
+
                 <div class="fms-donation-text">
                     <?php echo wpautop(wp_kses_post($tax)); ?>
                 </div>
+
             </div>
+
         <?php endif; ?>
 
         <div class="fms-system-cta">
-            <a href="<?php echo esc_url($link); ?>"
-               class="fms-hero-btn">
+
+            <a
+                href="<?php echo esc_url($link); ?>"
+                class="fms-hero-btn">
+
                 <?php echo esc_html($button); ?>
+
             </a>
+
         </div>
 
     </div>
+
 </section>
 
 <?php get_footer(); ?>
