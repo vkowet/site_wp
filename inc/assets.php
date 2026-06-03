@@ -110,6 +110,13 @@ function fms_enqueue_assets() {
         $version,
         true
     );
+
+    wp_enqueue_style(
+    'fms-donation',
+    get_template_directory_uri() . '/assets/css/donation.css',
+    [],
+    wp_get_theme()->get('Version')
+);
 }
 add_action('wp_enqueue_scripts', 'fms_enqueue_assets');
 

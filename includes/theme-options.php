@@ -654,6 +654,30 @@ class="large-text"><?php echo esc_textarea(fms_get_option('system','donation_con
 </tr>
 
 <tr>
+<th>IBAN / Coordonnées bancaires</th>
+<td>
+<textarea
+name="fms_theme_options[system][donation_bank]"
+rows="6"
+class="large-text"><?php echo esc_textarea(
+fms_get_option('system','donation_bank')
+); ?></textarea>
+</td>
+</tr>
+
+<tr>
+<th>Texte fiscal</th>
+<td>
+<textarea
+name="fms_theme_options[system][donation_tax]"
+rows="6"
+class="large-text"><?php echo esc_textarea(
+fms_get_option('system','donation_tax')
+); ?></textarea>
+</td>
+</tr>
+
+<tr>
 <th>Texte bouton</th>
 <td>
 <input type="text"
