@@ -4,15 +4,27 @@ get_header();
 $title = fms_get_option(
     'system',
     'donation_title',
-    'Faire un don'
+    get_the_title()
 );
 
 $content = wpautop(
     fms_get_option(
         'system',
         'donation_content',
-        ''
+        get_the_content()
     )
+);
+
+$bank = fms_get_option(
+    'system',
+    'donation_bank',
+    ''
+);
+
+$tax = fms_get_option(
+    'system',
+    'donation_tax',
+    ''
 );
 
 $button = fms_get_option(
@@ -33,8 +45,12 @@ $link = fms_get_option(
         <div class="fms-system-page-inner">
 
             <p class="fms-system-breadcrumb">
-                <a href="<?php echo home_url(); ?>">Accueil</a>
+                <a href="<?php echo esc_url(home_url('/')); ?>">
+                    Accueil
+                </a>
+
                 <span>></span>
+
                 <?php echo esc_html($title); ?>
             </p>
 
@@ -44,62 +60,56 @@ $link = fms_get_option(
     </div>
 </section>
 
-<section class="fms-donation-intro">
-    <div class="fms-container">
+<section class="fms-system-page-content fms-donation-page">
+    <div class="fms-system-page-container">
 
-        <div class="fms-donation-content">
-            <?php echo $content; ?>
+        <div class="fms-donation-intro">
+            <?php echo wp_kses_post($content); ?>
         </div>
 
-    </div>
-</section>
-
-<section class="fms-donation-values">
-    <div class="fms-container">
-
-        <div class="fms-donation-grid">
-
-            <article>
-                <h3>Accompagner</h3>
+        <div class="fms-donation-values">
+            <article class="fms-donation-card">
+                <h2>Accompagner</h2>
                 <p>
-                    Votre don soutient les missions éducatives,
-                    sociales et pastorales des Sœurs Franciscaines
-                    Servantes de Marie.
+                    Votre don soutient les missions éducatives, sociales
+                    et pastorales portées par la congrégation.
                 </p>
             </article>
 
-            <article>
-                <h3>Préserver</h3>
+            <article class="fms-donation-card">
+                <h2>Préserver</h2>
                 <p>
-                    Vous contribuez à l'entretien des lieux de vie,
+                    Votre générosité contribue à l’entretien des lieux de vie,
                     des maisons communautaires et du patrimoine.
                 </p>
             </article>
 
-            <article>
-                <h3>Transmettre</h3>
+            <article class="fms-donation-card">
+                <h2>Transmettre</h2>
                 <p>
-                    Vous participez à la transmission des valeurs
-                    évangéliques et franciscaines auprès des jeunes
-                    générations.
+                    Vous participez à la transmission des valeurs franciscaines :
+                    service, fraternité, simplicité et espérance.
                 </p>
             </article>
-
         </div>
 
-    </div>
-</section>
+        <?php if (!empty($bank)) : ?>
+            <div class="fms-donation-box">
+                <h2>Coordonnées pour effectuer un don</h2>
+                <div class="fms-donation-text">
+                    <?php echo wpautop(wp_kses_post($bank)); ?>
+                </div>
+            </div>
+        <?php endif; ?>
 
-<section class="fms-donation-bank">
-    <div class="fms-container">
-
-        <h2>Faire un don</h2>
-
-        <p>
-            Pour soutenir la congrégation, vous pouvez effectuer
-            un don par virement bancaire ou nous contacter pour
-            connaître les autres modalités de soutien.
-        </p>
+        <?php if (!empty($tax)) : ?>
+            <div class="fms-donation-box fms-donation-tax">
+                <h2>Informations fiscales</h2>
+                <div class="fms-donation-text">
+                    <?php echo wpautop(wp_kses_post($tax)); ?>
+                </div>
+            </div>
+        <?php endif; ?>
 
         <div class="fms-system-cta">
             <a href="<?php echo esc_url($link); ?>"
@@ -107,20 +117,6 @@ $link = fms_get_option(
                 <?php echo esc_html($button); ?>
             </a>
         </div>
-
-    </div>
-</section>
-
-<section class="fms-donation-tax">
-    <div class="fms-container">
-
-        <h2>Informations fiscales</h2>
-
-        <p>
-            Les dons réalisés au profit de la congrégation peuvent
-            ouvrir droit à une réduction fiscale conformément à la
-            réglementation en vigueur.
-        </p>
 
     </div>
 </section>
