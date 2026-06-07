@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         overlay.classList.remove('active');
         document.body.classList.remove('fms-menu-open');
         toggle.innerHTML = '☰';
+        toggle.setAttribute('aria-expanded', 'false');
     }
 
     function openMenu() {
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         overlay.classList.add('active');
         document.body.classList.add('fms-menu-open');
         toggle.innerHTML = '✕';
+        toggle.setAttribute('aria-expanded', 'true');
     }
 
     toggle.addEventListener('click', function (e) {
@@ -43,6 +45,42 @@ document.addEventListener('DOMContentLoaded', function () {
             closeMenu();
         } else {
             openMenu();
+        }
+    });
+
+
+
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'fms-mobile-menu');
+    menu.setAttribute('id', 'fms-mobile-menu');
+
+    menu.querySelectorAll('.menu-item-has-children > a').forEach(function (link) {
+        link.setAttribute('aria-expanded', 'false');
+
+        link.addEventListener('click', function (e) {
+            if (window.innerWidth > 992) {
+                return;
+            }
+
+            const parent = link.parentElement;
+            const submenu = parent ? parent.querySelector(':scope > .sub-menu') : null;
+
+            if (!submenu) {
+                return;
+            }
+
+            if (!parent.classList.contains('submenu-open')) {
+                e.preventDefault();
+                parent.classList.add('submenu-open');
+                link.setAttribute('aria-expanded', 'true');
+                return;
+            }
+        });
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('active')) {
+            closeMenu();
         }
     });
 

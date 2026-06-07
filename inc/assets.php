@@ -90,6 +90,15 @@ function fms_enqueue_assets() {
             );
         }
 
+        if (is_page_template('page-institutionnelle.php')) {
+            wp_enqueue_style(
+                'fms-institutional',
+                get_template_directory_uri() . '/assets/css/institutional.css',
+                [],
+                $version
+            );
+        }
+
         // Load donation page assets
         if (is_page('faire-un-don') || is_page_template('page-faire-un-don.php') || is_page_template('template-donation.php')) {
             wp_enqueue_style(
@@ -144,6 +153,15 @@ function fms_enqueue_assets() {
     wp_enqueue_script(
         'fms-stats',
         get_template_directory_uri() . '/assets/js/stats.js',
+        [],
+        $version,
+        true
+    );
+
+
+    wp_enqueue_script(
+        'fms-language',
+        get_template_directory_uri() . '/assets/js/language.js',
         [],
         $version,
         true

@@ -32,7 +32,7 @@ get_header();
             <li><a href="/mot-de-la-mere-superieure">Mot de la Mère Supérieure Générale</a></li>
             <li><a href="/histoire-de-la-fondatrice">Histoire de la Fondatrice</a></li>
             <li><a href="/presence-mondiale">Présence dans le monde</a></li>
-            <li><a href="/actualites">Actualités & Missions</a></li>
+            <li><a href="/actualites">Actualités</a></li>
             <li><a href="/vocations">Vocations</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>

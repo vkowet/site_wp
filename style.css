@@ -9,7 +9,7 @@ Text Domain: fms-theme
 
 body { margin: 0; font-family: Arial, sans-serif; color: #1d3557; }
 h1,h2,h3{ font-family:'Cormorant Garamond', serif; }
-.fms-topbar { background: #234e70; font-size: 13px; }
+.fms-topbar { align-items:center; background: #234e70; display:flex; font-size: 13px; justify-content:center; gap:18px; padding:0 18px; }
 .fms-topbar .menu { margin:0; padding:0; list-style:none; display:flex; justify-content:center; align-items:center; }
 .fms-topbar .menu > li { position:relative; }
 .fms-topbar .menu > li > a { display:block; padding:10px 18px; color:white; text-decoration:none; }
@@ -29,7 +29,10 @@ h1,h2,h3{ font-family:'Cormorant Garamond', serif; }
 .fms-main-nav .menu { margin:0; padding:0; list-style:none; display:flex; justify-content:center; }
 .fms-main-nav .menu > li { position:relative; }
 .fms-main-nav .menu > li > a { display:block; padding:18px 22px; color:white; text-decoration:none; }
-.fms-main-nav .sub-menu { display:none; position:absolute; top:100%; left:0; background:#234e70; min-width:250px; }
+.fms-main-nav .sub-menu { display:none; position:absolute; top:100%; left:0; background:#234e70; min-width:250px; margin:0; padding:0; list-style:none; z-index:9999; }
+.fms-main-nav .menu > li:hover > .sub-menu, .fms-main-nav .menu > li:focus-within > .sub-menu { display:block; }
+.fms-main-nav .sub-menu a { display:block; color:#fff; padding:13px 16px; text-decoration:none; white-space:nowrap; }
+.fms-main-nav .sub-menu a:hover, .fms-main-nav .sub-menu a:focus-visible { background:#16324f; outline:none; }
 .fms-footer { background:#102a43; color:#f0f4f8; margin-top:80px; }
 .fms-footer a { color:#d9e2ec; text-decoration:none; }
 .fms-footer-cta { background:#16324f; display:flex; justify-content:space-between; align-items:center; padding:30px 60px; gap:20px; }
@@ -85,3 +88,135 @@ nav.fms-mobile-menu a{display:block;color:white;padding:16px 12px;font-size:16px
 .fms-footer-col{padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.08);}
 .fms-footer-cta,.fms-footer-bottom{flex-direction:column;text-align:center;}
 }
+
+.fms-language-switcher {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.fms-topbar .fms-language-switcher-desktop {
+    margin-left: 18px;
+}
+
+.fms-language-switcher .gt_switcher,
+.fms-language-switcher .gt_float_switcher,
+.fms-language-switcher select {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    font-family: Arial, sans-serif !important;
+}
+
+.fms-language-switcher .gt_switcher {
+    border: 1px solid rgba(255,255,255,.32) !important;
+    font-size: 13px !important;
+    overflow: visible !important;
+}
+
+.fms-language-switcher .gt_switcher .gt_selected,
+.fms-language-switcher .gt_switcher .gt_selected a {
+    background: #ffffff !important;
+    color: #16324f !important;
+}
+
+.fms-language-switcher .gt_switcher .gt_option {
+    border: 1px solid #d9e2ec !important;
+    box-shadow: 0 10px 24px rgba(16,42,67,.16) !important;
+}
+
+.fms-language-switcher .gt_switcher a {
+    color: #16324f !important;
+    font-weight: 700 !important;
+}
+
+.fms-language-switcher .gt_switcher img {
+    margin-right: 6px !important;
+}
+
+.fms-language-switcher-mobile {
+    justify-content: flex-start;
+    padding: 12px;
+}
+
+.fms-language-switcher-mobile .gt_switcher {
+    width: 100% !important;
+}
+
+@media (max-width:992px){
+    .fms-language-switcher-desktop{display:none!important;}
+}
+@media (max-width:992px){
+.fms-topbar{display:none!important;}
+}
+
+.fms-language-switcher-desktop .gt_switcher .gt_selected img {
+    display: inline !important;
+    margin: 0 !important;
+}
+
+.fms-language-switcher-desktop .gt_switcher .gt_selected a {
+    align-items: center !important;
+    display: flex !important;
+    font-size: 0 !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    padding: 5px 28px 5px 8px !important;
+    width: 24px !important;
+}
+
+.fms-language-switcher-desktop .gt_switcher .gt_option img {
+    display: inline !important;
+}
+
+.fms-language-switcher-desktop .gt_switcher .gt_option {
+    position: absolute !important;
+}
+
+.fms-language-switcher-desktop .gt_switcher {
+    line-height: 1.2 !important;
+}
+
+.fms-language-switcher-desktop .gt_switcher {
+    width: 62px !important;
+}
+
+.fms-language-switcher-desktop .gt_switcher .gt_selected a::after {
+    right: 7px !important;
+}
+
+.fms-language-switcher-desktop .gt_switcher .gt_option {
+    width: 132px !important;
+}
+
+.fms-language-switcher-desktop .gt_switcher .gt_option a {
+    font-size: 13px !important;
+    padding: 6px 8px !important;
+}
+
+.fms-main-nav .menu > .menu-item-has-children > a,
+.fms-topbar .menu > .menu-item-has-children > a {
+    padding-right: 34px;
+    position: relative;
+}
+
+.fms-main-nav .menu > .menu-item-has-children > a::after,
+.fms-topbar .menu > .menu-item-has-children > a::after {
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    content: '';
+    height: 7px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-65%) rotate(45deg);
+    transition: transform .2s ease;
+    width: 7px;
+}
+
+.fms-main-nav .menu > .menu-item-has-children:hover > a::after,
+.fms-main-nav .menu > .menu-item-has-children:focus-within > a::after,
+.fms-topbar .menu > .menu-item-has-children:hover > a::after,
+.fms-topbar .menu > .menu-item-has-children:focus-within > a::after {
+    transform: translateY(-35%) rotate(225deg);
+}
+

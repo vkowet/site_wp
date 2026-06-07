@@ -63,6 +63,11 @@ $header_slogan = fms_get_option('identity', 'slogan', 'Servir - Apprendre et Éd
         ]);
         ?>
 
+
+        <div class="fms-language-switcher fms-language-switcher-mobile" aria-label="Choix de la langue">
+            <?php echo do_shortcode('[gtranslate widget_look="dropdown_with_flags"]'); ?>
+        </div>
+
         <div class="fms-mobile-cta">
 
             <a href="<?php echo esc_url(home_url('/faire-un-don')); ?>"
@@ -88,6 +93,11 @@ $header_slogan = fms_get_option('identity', 'slogan', 'Servir - Apprendre et Éd
             'fallback_cb'    => false,
         ]);
         ?>
+
+        <div class="fms-language-switcher fms-language-switcher-desktop" aria-label="Choix de la langue">
+            <?php echo do_shortcode('[gtranslate widget_look="dropdown_with_flags"]'); ?>
+        </div>
+
     </div>
 
     <!-- BRANDING -->

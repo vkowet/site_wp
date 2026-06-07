@@ -345,6 +345,7 @@ $tabs = [
     'homepage'     => 'Homepage',
     'governance'   => 'Gouvernance',
     'institution'  => 'Institution',
+    'institutional-pages' => 'Pages institutionnelles',
     'missions'     => 'Missions',
     'identity'     => 'Identité',
     'contact'      => 'Contact',

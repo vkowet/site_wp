@@ -1,0 +1,150 @@
+.fms-institutional-page {
+    background: #f7f9fb;
+    color: #263746;
+}
+
+.fms-institutional-hero {
+    background: #16324f;
+    color: #ffffff;
+}
+
+.fms-institutional-hero-inner {
+    margin: 0 auto;
+    max-width: 1120px;
+    padding: 88px 20px 76px;
+}
+
+.fms-institutional-hero a {
+    color: #d9e2ec;
+    display: inline-block;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    margin-bottom: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.fms-institutional-hero h1 {
+    color: #ffffff;
+    font-size: clamp(2.35rem, 5vw, 4.1rem);
+    line-height: 1.06;
+    margin: 0 0 22px;
+    max-width: 850px;
+}
+
+.fms-institutional-hero p {
+    color: #e6edf4;
+    font-size: 1.16rem;
+    line-height: 1.85;
+    margin: 0;
+    max-width: 790px;
+}
+
+.fms-institutional-body {
+    margin: 0 auto;
+    max-width: 1120px;
+    padding: 70px 20px 88px;
+}
+
+.fms-institutional-content {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    color: #334e68;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    padding: 50px 58px;
+}
+
+.fms-institutional-content > *:first-child {
+    margin-top: 0;
+}
+
+.fms-institutional-content > *:last-child {
+    margin-bottom: 0;
+}
+
+.fms-institutional-content h2,
+.fms-institutional-content h3 {
+    color: #16324f;
+    line-height: 1.18;
+}
+
+.fms-institutional-content h2 {
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    margin: 44px 0 18px;
+}
+
+.fms-institutional-content h3 {
+    font-size: 1.35rem;
+    margin: 32px 0 12px;
+}
+
+.fms-institutional-content p {
+    margin: 0 0 22px;
+}
+
+.fms-institutional-content ul,
+.fms-institutional-content ol {
+    margin: 0 0 26px 22px;
+    padding: 0;
+}
+
+.fms-institutional-content li {
+    margin-bottom: 10px;
+}
+
+.fms-institutional-content blockquote {
+    background: #eef4f8;
+    border-left: 5px solid #234e70;
+    color: #16324f;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    line-height: 1.55;
+    margin: 34px 0;
+    padding: 26px 30px;
+}
+
+.fms-institutional-content .fms-page-note {
+    background: #f7f9fb;
+    border: 1px solid #d9e2ec;
+    border-left: 5px solid #234e70;
+    margin: 34px 0;
+    padding: 26px 30px;
+}
+
+.fms-institutional-content .fms-page-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 30px 0;
+}
+
+.fms-institutional-content .fms-page-card {
+    background: #f7f9fb;
+    border: 1px solid #d9e2ec;
+    padding: 24px;
+}
+
+.fms-institutional-content .fms-page-card h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 760px) {
+    .fms-institutional-hero-inner {
+        padding: 66px 20px 58px;
+    }
+
+    .fms-institutional-body {
+        padding: 46px 18px 62px;
+    }
+
+    .fms-institutional-content {
+        font-size: 1rem;
+        padding: 30px 22px;
+    }
+
+    .fms-institutional-content .fms-page-grid {
+        grid-template-columns: 1fr;
+    }
+}
