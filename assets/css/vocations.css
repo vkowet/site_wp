@@ -1,0 +1,686 @@
+/* Vocations Page Styles */
+
+.vocations-page-wrapper {
+    background: linear-gradient(180deg, #f8fafc 0%, #f0f4f8 100%);
+}
+
+/* Introduction Section */
+.vocations-intro-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #eef2f6 0%, #e6edf4 100%);
+    border-bottom: 2px solid #d9e2ec;
+}
+
+.vocations-intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.vocations-intro-section h2 {
+    font-size: 2.4rem;
+    color: #16324f;
+    margin: 0 0 30px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.vocations-intro-section p {
+    font-size: 1.15rem;
+    color: #334e68;
+    line-height: 1.9;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Main Vocation Section */
+.vocations-main-section {
+    padding: 100px 20px;
+    background: white;
+    border-bottom: 1px solid #e6edf4;
+}
+
+.vocations-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vocations-text-col h2 {
+    font-size: 2.2rem;
+    color: #16324f;
+    margin: 0 0 15px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.vocations-subtitle {
+    font-size: 1.2rem;
+    color: #234e70;
+    margin: 0 0 30px 0;
+    font-weight: 600;
+    font-style: italic;
+    border-left: 4px solid #234e70;
+    padding-left: 20px;
+}
+
+.vocations-description {
+    color: #3d5568;
+    line-height: 2;
+    font-size: 1rem;
+}
+
+.vocations-description p {
+    margin: 0 0 20px 0;
+}
+
+.vocations-visual-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vocations-visual-box {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #234e70 0%, #3a5f89 100%);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 16px 48px rgba(35, 78, 112, 0.2);
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+}
+
+.vocations-visual-box::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #234e70, #3a5f89, #234e70);
+    border-radius: 20px;
+    opacity: 0.3;
+    animation: rotate 8s linear infinite;
+    z-index: -1;
+}
+
+.visual-icon {
+    font-size: 6rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Charism Section */
+.vocations-charism-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
+    border-top: 2px solid #e6edf4;
+    border-bottom: 2px solid #e6edf4;
+}
+
+.vocations-charism-section h2 {
+    font-size: 2.2rem;
+    color: #16324f;
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.vocations-charism-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #234e70, #3a5f89, #234e70);
+    border-radius: 2px;
+}
+
+.charism-intro {
+    text-align: center;
+    color: #3d5568;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    font-weight: 500;
+}
+
+.vocations-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vocations-value-card {
+    background: white;
+    border-radius: 16px;
+    padding: 50px 35px;
+    box-shadow: 0 8px 24px rgba(22, 50, 79, 0.1);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 2px solid #e6edf4;
+    text-align: center;
+    overflow: hidden;
+}
+
+.vocations-value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #234e70 0%, rgba(35, 78, 112, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.vocations-value-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 48px rgba(22, 50, 79, 0.2);
+    border-color: #234e70;
+}
+
+.vocations-value-card:hover::before {
+    opacity: 0.03;
+}
+
+.value-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #d9e2ec;
+    margin-bottom: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: -2px;
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.vocations-value-card:hover .value-icon {
+    transform: scale(1.2) rotate(-10deg);
+}
+
+.vocations-value-card h3 {
+    font-size: 1.5rem;
+    color: #16324f;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: -0.3px;
+    position: relative;
+    z-index: 1;
+}
+
+.vocations-value-card p {
+    color: #3d5568;
+    font-size: 0.98rem;
+    line-height: 1.85;
+    margin: 0;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+/* Reflection Section */
+.vocations-reflection-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #16324f 0%, #1a3f63 100%);
+}
+
+.vocations-reflection-section .fms-system-page-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    color: #ffffff;
+}
+
+.reflection-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.reflection-content h2 {
+    font-size: 2.6rem;
+    margin: 0 0 30px 0;
+    font-weight: 700;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0;
+    color: #ffffff;
+    opacity: 1;
+    text-shadow: none;
+}
+
+.reflection-content p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    margin: 0 0 40px 0;
+    color: #ffffff;
+    font-weight: 500;
+    opacity: 1;
+    text-shadow: none;
+}
+
+.reflection-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: white;
+    color: #16324f;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.3px;
+}
+
+.reflection-btn:hover {
+    background: #f0f4f8;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Section */
+.vocations-contact-section {
+    padding: 100px 20px;
+    background: white;
+    border-top: 2px solid #e6edf4;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.contact-text h2 {
+    font-size: 2rem;
+    color: #16324f;
+    margin: 0 0 20px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.contact-text p {
+    color: #3d5568;
+    font-size: 1rem;
+    line-height: 1.9;
+    margin: 0;
+    font-weight: 500;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
+    border-radius: 12px;
+    border-left: 4px solid #234e70;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    box-shadow: 0 8px 24px rgba(22, 50, 79, 0.12);
+    transform: translateX(8px);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.contact-item strong {
+    display: block;
+    color: #16324f;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.contact-item a {
+    color: #234e70;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #16324f;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .vocations-intro-section h2 {
+        font-size: 1.9rem;
+    }
+
+    .vocations-intro-section p {
+        font-size: 1rem;
+    }
+
+    .vocations-two-col {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .vocations-text-col h2 {
+        font-size: 1.8rem;
+    }
+
+    .vocations-visual-box {
+        width: 250px;
+        height: 250px;
+    }
+
+    .visual-icon {
+        font-size: 5rem;
+    }
+
+    .vocations-values-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .vocations-charism-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .reflection-content h2 {
+        font-size: 2rem;
+    }
+
+    .reflection-content p {
+        font-size: 1rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .contact-text h2 {
+        font-size: 1.6rem;
+    }
+
+    .vocations-main-section,
+    .vocations-charism-section,
+    .vocations-reflection-section,
+    .vocations-contact-section {
+        padding: 70px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .vocations-intro-section {
+        padding: 50px 15px;
+    }
+
+    .vocations-intro-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .vocations-intro-section p {
+        font-size: 0.95rem;
+    }
+
+    .vocations-main-section,
+    .vocations-charism-section,
+    .vocations-reflection-section,
+    .vocations-contact-section {
+        padding: 50px 15px;
+    }
+
+    .vocations-two-col {
+        gap: 30px;
+    }
+
+    .vocations-text-col h2 {
+        font-size: 1.5rem;
+    }
+
+    .vocations-subtitle {
+        font-size: 1rem;
+    }
+
+    .vocations-description {
+        font-size: 0.95rem;
+    }
+
+    .vocations-visual-box {
+        width: 200px;
+        height: 200px;
+    }
+
+    .visual-icon {
+        font-size: 4rem;
+    }
+
+    .vocations-charism-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .charism-intro {
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+    }
+
+    .vocations-value-card {
+        padding: 35px 25px;
+    }
+
+    .value-number {
+        font-size: 2.5rem;
+    }
+
+    .value-icon {
+        font-size: 2.5rem;
+    }
+
+    .vocations-value-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .vocations-value-card p {
+        font-size: 0.9rem;
+    }
+
+    .reflection-content h2 {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+    }
+
+    .reflection-content p {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    .reflection-btn {
+        padding: 14px 32px;
+        font-size: 0.9rem;
+    }
+
+    .contact-grid {
+        gap: 30px;
+    }
+
+    .contact-text h2 {
+        font-size: 1.4rem;
+    }
+
+    .contact-text p {
+        font-size: 0.95rem;
+    }
+
+    .contact-item {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .contact-icon {
+        font-size: 1.8rem;
+    }
+
+    .contact-item strong {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vocations-intro-section {
+        padding: 40px 12px;
+    }
+
+    .vocations-intro-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .vocations-intro-section p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .vocations-main-section,
+    .vocations-charism-section,
+    .vocations-reflection-section,
+    .vocations-contact-section {
+        padding: 40px 12px;
+    }
+
+    .vocations-text-col h2 {
+        font-size: 1.3rem;
+    }
+
+    .vocations-visual-box {
+        width: 150px;
+        height: 150px;
+    }
+
+    .visual-icon {
+        font-size: 3rem;
+    }
+
+    .vocations-charism-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .charism-intro {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+
+    .vocations-value-card {
+        padding: 25px 15px;
+    }
+
+    .value-number {
+        font-size: 2rem;
+    }
+
+    .value-icon {
+        font-size: 2rem;
+    }
+
+    .vocations-value-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .vocations-value-card p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    .reflection-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .reflection-content p {
+        font-size: 0.9rem;
+    }
+
+    .contact-item {
+        padding: 18px;
+    }
+
+    .contact-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vocations-value-card {
+    animation: slideUp 0.6s ease;
+}
+
+/* Accessibility */
+.reflection-btn:focus,
+.reflection-btn:focus-visible {
+    outline: 2px solid #16324f;
+    outline-offset: 2px;
+}
+
+.contact-item a:focus,
+.contact-item a:focus-visible {
+    outline: 2px solid #234e70;
+    outline-offset: 2px;
+}

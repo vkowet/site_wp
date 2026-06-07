@@ -1,6 +1,12 @@
 <?php
 $name        = fms_get_option('footer', 'name', 'Sœurs Franciscaines Servantes de Marie');
 $bottom_text = fms_get_option('footer', 'bottom_text', 'Site officiel du siège mondial – Blois, France');
+$address1    = fms_get_option('footer', 'address1', '');
+$address2    = fms_get_option('footer', 'address2', '');
+$city        = fms_get_option('footer', 'city', '');
+$phone       = fms_get_option('footer', 'phone', '');
+$email       = fms_get_option('footer', 'email', '');
+$subtitle    = fms_get_option('footer', 'subtitle', '');
 
 $contact = fms_get_option('contact');
 ?>
@@ -20,7 +26,36 @@ $contact = fms_get_option('contact');
         <!-- IDENTITÉ -->
         <div class="fms-footer-col fms-footer-identity">
             <h3><?php echo esc_html($name); ?></h3>
+            <?php if (!empty($subtitle)): ?>
+            <h4 style="margin: 8px 0 15px 0; font-size: 14px; font-weight: 600; color: #e7ecef;"><?php echo esc_html($subtitle); ?></h4>
+            <?php endif; ?>
             <p><?php echo esc_html($bottom_text); ?></p>
+            
+            <!-- Coordonnées du siège -->
+            <?php if (!empty($address1) || !empty($phone) || !empty($email)): ?>
+            <address style="margin-top: 15px; font-size: 14px; line-height: 1.6;">
+                <?php if (!empty($address1)): ?>
+                    <?php echo esc_html($address1); ?><br>
+                <?php endif; ?>
+                <?php if (!empty($address2)): ?>
+                    <?php echo esc_html($address2); ?><br>
+                <?php endif; ?>
+                <?php if (!empty($city)): ?>
+                    <?php echo esc_html($city); ?><br>
+                <?php endif; ?>
+                
+                <?php if (!empty($phone)): ?>
+                    Tél. : <?php echo esc_html($phone); ?><br>
+                <?php endif; ?>
+
+                <?php if (!empty($email)): ?>
+                    Courriel :
+                    <a href="mailto:<?php echo esc_attr($email); ?>">
+                        <?php echo esc_html($email); ?>
+                    </a>
+                <?php endif; ?>
+            </address>
+            <?php endif; ?>
         </div>
 
         <!-- ACCÈS RAPIDE -->
@@ -33,30 +68,6 @@ $contact = fms_get_option('contact');
                 <li><a href="<?php echo home_url('/presence-mondiale'); ?>">Présence dans le monde</a></li>
                 <li><a href="<?php echo home_url('/contact'); ?>">Contact</a></li>
             </ul>
-        </div>
-
-        <!-- COORDONNÉES OFFICIELLES -->
-        <div class="fms-footer-col">
-            <h4>Généralat</h4>
-
-            <?php if (!empty($contact)): ?>
-                <address>
-                    <?php if (!empty($contact['address'])): ?>
-                        <?php echo nl2br(esc_html($contact['address'])); ?><br>
-                    <?php endif; ?>
-
-                    <?php if (!empty($contact['phone'])): ?>
-                        Tél. : <?php echo esc_html($contact['phone']); ?><br>
-                    <?php endif; ?>
-
-                    <?php if (!empty($contact['email'])): ?>
-                        Courriel :
-                        <a href="mailto:<?php echo esc_attr($contact['email']); ?>">
-                            <?php echo esc_html($contact['email']); ?>
-                        </a>
-                    <?php endif; ?>
-                </address>
-            <?php endif; ?>
         </div>
 
         <!-- LIENS -->
@@ -79,6 +90,8 @@ $contact = fms_get_option('contact');
     </div>
 
 </footer>
+
+<button class="fms-back-to-top" type="button" aria-label="Retour en haut de page">↑</button>
 
 <?php wp_footer(); ?>
 </body>

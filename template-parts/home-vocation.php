@@ -8,7 +8,7 @@ $bg_id = fms_get_option('homepage', 'vocation_bg');
 $bg    = fms_get_image_url($bg_id);
 
 if (!$bg) {
-    $bg = '/wp-content/uploads/2025/05/vocation-bg.jpg';
+    $bg = fms_get_image_url(fms_get_option('homepage', 'hero_image'), 'full');
 }
 ?>
 

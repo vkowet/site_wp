@@ -1,7 +1,7 @@
 <?php
 /**
- * Template : Faire un don
- * Page de soutien pour les Soeurs Franciscaines Servantes de Marie
+ * Template Name: Donation
+ * Description: Page de soutien pour les Soeurs Franciscaines Servantes de Marie
  */
 
 get_header();

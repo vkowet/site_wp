@@ -1,1 +1,266 @@
-.fms-hero,.fms-slide{min-height:520px;background-size:cover;background-position:center;position:relative;display:flex;align-items:center;justify-content:center}.fms-hero-overlay{background:rgba(0,0,0,.35);padding:40px;width:100%}.fms-hero-content{max-width:900px;margin:0 auto;text-align:center;color:#fff}.fms-hero h1,.fms-slide h1{font-size:3.2rem;font-weight:700;line-height:1.2;margin:0 0 15px}.fms-hero p,.fms-slide p{font-size:1.25rem;line-height:1.6;max-width:700px;margin:0 auto 25px}.fms-hero-btn{display:inline-block;padding:14px 28px;background:#234e70;color:#fff;text-decoration:none;border-radius:4px}.fms-hero-slider{position:relative;overflow:hidden;min-height:520px}.fms-slide{position:absolute;top:0;left:0;width:100%;opacity:0;transition:opacity 1s ease-in-out}.fms-slide.active{opacity:1;position:relative}.fms-slider-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px}.fms-slider-dots span{width:12px;height:12px;border-radius:50%;background:#fff;opacity:.6}.fms-message-section,.fms-foundress-section{position:relative;padding:40px 20px 80px;background:#f8fafc}.fms-message-section:before{content:'MOT DE LA MÈRE SUPÉRIEURE GÉNÉRALE';display:block;text-align:center;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;color:#6b7c93;margin-bottom:30px}.fms-foundress-section:before{content:'HISTOIRE DE LA FONDATRICE';display:block;text-align:center;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;color:#6b7c93;margin-bottom:30px}.fms-message-container,.fms-foundress-container{max-width:1100px;margin:0 auto;display:grid;gap:45px;align-items:center;background:#fff;padding:45px 55px;border-radius:18px;box-shadow:0 18px 45px rgba(0,0,0,.08)}.fms-message-container{grid-template-columns:220px 1fr;border-top:5px solid #234e70}.fms-foundress-container{grid-template-columns:1fr 320px;border-top:5px solid #6b7c93;background:linear-gradient(135deg,#ffffff 0%,#f8fafc 100%)}.fms-message-photo,.fms-foundress-photo{text-align:center}.fms-message-photo img{width:180px;height:180px;object-fit:cover;border-radius:50%;border:6px solid #f4f7fb;box-shadow:0 8px 25px rgba(0,0,0,.15)}.fms-foundress-photo img{width:100%;max-width:280px;height:auto;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,.12)}.fms-message-content h2,.fms-foundress-content h2{font-size:2.3rem;color:#1d3557;margin:0 0 10px;line-height:1.2}.fms-message-content h2:before{content:'Message officiel';display:block;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;color:#6b7c93;margin-bottom:10px}.fms-foundress-content h2:before{content:'Mémoire fondatrice';display:block;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;color:#6b7c93;margin-bottom:10px}.fms-message-content p,.fms-foundress-content p{font-size:1.08rem;line-height:1.9;color:#444;margin:20px 0 25px}.fms-message-content p{padding-left:22px;border-left:3px solid #234e70}.fms-foundress-content p{padding-right:22px;border-right:3px solid #6b7c93}.fms-message-content .fms-hero-btn,.fms-foundress-content .fms-hero-btn{background:none;color:#1d3557;padding:0;font-weight:700;border-radius:0}.fms-message-content .fms-hero-btn:after,.fms-foundress-content .fms-hero-btn:after{content:' →'}@media(max-width:768px){.fms-message-section,.fms-foundress-section{padding:30px 15px 50px}.fms-message-container,.fms-foundress-container{grid-template-columns:1fr;text-align:center;padding:30px;gap:25px}.fms-message-photo img{width:140px;height:140px}.fms-foundress-photo img{max-width:220px}.fms-message-content p,.fms-foundress-content p{padding:20px 0 0;border:none;border-top:3px solid #234e70}}
+.fms-hero,
+.fms-slide {
+    min-height: 560px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fms-hero-overlay {
+    background: linear-gradient(90deg, rgba(8,18,32,.78), rgba(8,18,32,.42));
+    padding: 96px 24px;
+    width: 100%;
+}
+
+.fms-hero-content {
+    max-width: 980px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.fms-hero h1,
+.fms-slide h1 {
+    color: #fff;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.08;
+    margin: 0 0 18px;
+    max-width: 780px;
+}
+
+.fms-hero p,
+.fms-slide p {
+    font-size: 1.18rem;
+    line-height: 1.8;
+    max-width: 720px;
+    margin: 0 0 30px;
+}
+
+.fms-hero-btn {
+    display: inline-block;
+    padding: 13px 24px;
+    background: #234e70;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.fms-hero-btn:hover {
+    background: #16324f;
+}
+
+.fms-hero-slider {
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+}
+
+.fms-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fms-slide.active {
+    opacity: 1;
+    position: relative;
+}
+
+.fms-slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    background: rgba(8, 18, 32, .42);
+    color: #fff;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.fms-slider-nav:hover,
+.fms-slider-nav:focus-visible {
+    background: rgba(35, 78, 112, .92);
+    border-color: #fff;
+    outline: none;
+}
+
+.fms-slider-prev {
+    left: 24px;
+}
+
+.fms-slider-next {
+    right: 24px;
+}
+
+.fms-slider-dots {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.fms-slider-dots button {
+    width: 11px;
+    height: 11px;
+    border: 1px solid rgba(255, 255, 255, .75);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .55);
+    cursor: pointer;
+    padding: 0;
+}
+
+.fms-slider-dots button.active,
+.fms-slider-dots button:hover,
+.fms-slider-dots button:focus-visible {
+    background: #fff;
+    outline: none;
+}
+
+.fms-institutional-section,
+.fms-message-section,
+.fms-foundress-section,
+.fms-world-section,
+.fms-news-section,
+.fms-vocation-section {
+    position: relative;
+}
+
+.fms-institutional-section,
+.fms-message-section,
+.fms-foundress-section,
+.fms-news-section {
+    padding: 76px 20px;
+    background: #f7f9fb;
+}
+
+.fms-institutional-section + .fms-message-section,
+.fms-message-section + .fms-foundress-section,
+.fms-foundress-section + .fms-world-section,
+.fms-world-section + .fms-news-section,
+.fms-news-section + .fms-vocation-section {
+    border-top: 1px solid #d9e2ec;
+}
+
+.fms-section-kicker {
+    color: #567086;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    margin: 0 auto 24px;
+    max-width: 1100px;
+    text-transform: uppercase;
+}
+
+.fms-message-container,
+.fms-foundress-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    gap: 40px;
+    align-items: center;
+    background: #fff;
+    padding: 38px;
+    border: 1px solid #d9e2ec;
+    border-top: 4px solid #234e70;
+}
+
+.fms-message-container {
+    grid-template-columns: 200px 1fr;
+}
+
+.fms-foundress-container {
+    grid-template-columns: 1fr 280px;
+}
+
+.fms-message-photo,
+.fms-foundress-photo {
+    text-align: center;
+}
+
+.fms-message-photo img {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.fms-foundress-photo img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+}
+
+.fms-message-content h2,
+.fms-foundress-content h2 {
+    font-size: 2rem;
+    color: #16324f;
+    margin: 0 0 16px;
+    line-height: 1.2;
+}
+
+.fms-message-content p,
+.fms-foundress-content p {
+    font-size: 1.03rem;
+    line-height: 1.85;
+    color: #3e5367;
+    margin: 0 0 24px;
+}
+
+.fms-message-content .fms-hero-btn,
+.fms-foundress-content .fms-hero-btn {
+    background: transparent;
+    color: #16324f;
+    padding: 0;
+    font-weight: 700;
+}
+
+.fms-message-content .fms-hero-btn:after,
+.fms-foundress-content .fms-hero-btn:after {
+    content: ' →';
+}
+
+@media (max-width: 768px) {
+    .fms-hero-overlay {
+        padding: 76px 20px;
+    }
+
+    .fms-slider-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+    }
+
+    .fms-slider-prev {
+        left: 12px;
+    }
+
+    .fms-slider-next {
+        right: 12px;
+    }
+
+    .fms-message-container,
+    .fms-foundress-container {
+        grid-template-columns: 1fr;
+        padding: 28px;
+    }
+
+    .fms-message-photo,
+    .fms-foundress-photo {
+        order: -1;
+    }
+}

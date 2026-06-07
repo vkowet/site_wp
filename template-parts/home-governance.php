@@ -9,7 +9,7 @@ $title = fms_get_option(
 $subtitle = fms_get_option(
     'governance',
     'subtitle',
-    'Une gouvernance au service de la mission et de la fraternité.'
+    'Une gouvernance au service de la mission, de l’unité et de la fidélité au charisme.'
 );
 
 $superior_name = fms_get_option(
@@ -21,13 +21,13 @@ $superior_name = fms_get_option(
 $superior_role = fms_get_option(
     'governance',
     'superior_role',
-    'Congrégation des Franciscaines Servantes de Marie'
+    'Supérieure Générale'
 );
 
 $superior_message = fms_get_option(
     'governance',
     'superior_message',
-    'Message de présentation de la gouvernance.'
+    'La Supérieure Générale, avec son Conseil, accompagne la vie de la Congrégation et veille à la communion entre les communautés, au service de l’Église et du monde.'
 );
 
 $superior_photo = fms_get_option(
@@ -48,7 +48,13 @@ $hero_title = fms_get_option(
 $hero_text = fms_get_option(
     'governance',
     'hero_text',
-    'Au service de la mission, de la fraternité et de l’Évangile.'
+    'Une responsabilité exercée dans l’écoute, le discernement et le service de la mission commune.'
+);
+
+$council_title = fms_get_option(
+    'governance',
+    'council_title',
+    'Conseil Général'
 );
 
 $org_title = fms_get_option(
@@ -60,242 +66,299 @@ $org_title = fms_get_option(
 $org_text = fms_get_option(
     'governance',
     'org_text',
-    'La Congrégation est gouvernée par la Supérieure Générale et son Conseil. Ensemble, ils veillent à la fidélité au charisme, à la mission éducative et à l’unité des communautés.'
+    'La Congrégation est gouvernée par la Supérieure Générale et son Conseil. Ensemble, elles veillent à la fidélité au charisme, à la mission éducative et sociale, et à l’unité des communautés présentes dans le monde.'
 );
 
+$council_members = [];
+
+for ($i = 1; $i <= 6; $i++) {
+    $name = fms_get_option('governance', 'member_' . $i . '_name');
+
+    if (empty($name)) {
+        continue;
+    }
+
+    $photo = fms_get_option('governance', 'member_' . $i . '_photo');
+
+    $council_members[] = [
+        'name' => $name,
+        'role' => fms_get_option('governance', 'member_' . $i . '_role'),
+        'photo_url' => $photo ? wp_get_attachment_image_url($photo, 'medium') : '',
+    ];
+}
 ?>
 
-<section class="fms-governance-section"
-style="
-background:#f5f7fa;
-">
-
-<div class="fms-container" style="max-width:1200px;margin:0 auto;">
-
-    <div style="
-background:linear-gradient(135deg,#16324f,#21476f);
-color:white;
-padding:80px 40px;
-border-radius:14px;
-margin:50px 0;
-text-align:center;
-">
-
-<h1 style="
-margin-bottom:20px;
-font-size:3rem;
-color:white;
-">
-<?php echo esc_html($hero_title); ?>
-</h1>
-
-<p style="
-max-width:700px;
-margin:0 auto;
-font-size:1.2rem;
-line-height:1.8;
-opacity:.95;
-">
-<?php echo esc_html($hero_text); ?>
-</p>
-
-</div>
-
-<div style="text-align:center;margin-bottom:50px;">
-
-<h2 style="color:#16324f;margin-bottom:15px;">
-<?php echo esc_html($title); ?>
-</h2>
-
-<p style="max-width:800px;margin:0 auto;color:#666;">
-<?php echo esc_html($subtitle); ?>
-</p>
-
-</div>
-
-<div style="
-display:grid;
-grid-template-columns:300px 1fr;
-gap:40px;
-align-items:center;
-margin-bottom:50px;
-">
-
-<div>
-
-<?php if($superior_photo_url): ?>
-
-<img
-src="<?php echo esc_url($superior_photo_url); ?>"
-alt="<?php echo esc_attr($superior_name); ?>"
-style="
-width:100%;
-border-radius:12px;
-box-shadow:0 6px 20px rgba(0,0,0,.08);
-">
-
-<?php endif; ?>
-
-</div>
-
-<div>
-
-<h3 style="color:#16324f;">
-<?php echo esc_html($superior_name); ?>
-</h3>
-
-<p style="
-font-weight:600;
-color:#666;
-margin-bottom:20px;
-">
-<?php echo esc_html($superior_role); ?>
-</p>
-
-<p style="
-line-height:1.9;
-color:#444;
-">
-<?php echo nl2br(esc_html($superior_message)); ?>
-</p>
-
-</div>
-
-</div>
-
-<div style="
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-">
-
-<?php for($i=1;$i<=6;$i++): ?>
-
-<?php
-
-$name = fms_get_option(
-'governance',
-'member_'.$i.'_name'
-);
-
-if(empty($name)){
-    continue;
+<style>
+.fms-governance-section {
+    background: #f7f9fb;
+    color: #22313f;
+    padding: 56px 20px 80px;
 }
 
-$role = fms_get_option(
-'governance',
-'member_'.$i.'_role'
-);
+.fms-governance-container {
+    max-width: 1120px;
+    margin: 0 auto;
+}
 
-$photo = fms_get_option(
-'governance',
-'member_'.$i.'_photo'
-);
+.fms-governance-header {
+    border-left: 5px solid #234e70;
+    padding: 10px 0 12px 28px;
+    margin-bottom: 48px;
+}
 
-$photo_url = $photo
-? wp_get_attachment_image_url($photo,'medium')
-: '';
+.fms-governance-kicker {
+    color: #567086;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+}
 
-?>
+.fms-governance-header h1 {
+    color: #16324f;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.12;
+    margin: 0 0 18px;
+}
 
-<div style="
-background:white;
-border-top:4px solid #16324f;
-box-shadow:0 6px 20px rgba(0,0,0,.05);
-padding:25px;
-border-radius:10px;
-text-align:center;
-">
+.fms-governance-header p,
+.fms-governance-intro p,
+.fms-governance-org p {
+    color: #3e5367;
+    font-size: 1.04rem;
+    line-height: 1.85;
+    margin: 0;
+    max-width: 820px;
+}
 
-<?php if($photo_url): ?>
+.fms-governance-intro {
+    margin-bottom: 42px;
+}
 
-<img
-src="<?php echo esc_url($photo_url); ?>"
-style="
-width:120px;
-height:120px;
-object-fit:cover;
-border-radius:50%;
-margin-bottom:15px;
-">
+.fms-governance-intro h2,
+.fms-governance-council h2,
+.fms-governance-org h2 {
+    color: #16324f;
+    font-size: 1.65rem;
+    line-height: 1.25;
+    margin: 0 0 14px;
+}
 
-<?php endif; ?>
+.fms-governance-tree {
+    display: grid;
+    gap: 0;
+}
 
-<h4 style="margin-bottom:8px;color:#16324f;">
-<?php echo esc_html($name); ?>
-</h4>
+.fms-governance-superior {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    border-top: 4px solid #234e70;
+    display: grid;
+    gap: 34px;
+    grid-template-columns: 220px minmax(0, 1fr);
+    padding: 34px;
+}
 
-<p style="color:#666;">
-<?php echo esc_html($role); ?>
-</p>
+.fms-governance-photo,
+.fms-governance-photo-placeholder {
+    aspect-ratio: 4 / 5;
+    background: #e6edf4;
+    border: 1px solid #d9e2ec;
+    width: 100%;
+}
 
-</div>
+.fms-governance-photo {
+    object-fit: cover;
+}
 
-<?php endfor; ?>
+.fms-governance-person h3,
+.fms-governance-member h3 {
+    color: #16324f;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    margin: 0 0 8px;
+}
 
-</div>
+.fms-governance-role {
+    color: #567086;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin: 0 0 18px;
+    text-transform: uppercase;
+}
 
-<div style="
-margin-top:70px;
-background:white;
-padding:50px;
-border-radius:12px;
-box-shadow:0 6px 20px rgba(0,0,0,.05);
-">
+.fms-governance-message {
+    color: #334e68;
+    font-size: 1rem;
+    line-height: 1.9;
+    margin: 0;
+}
 
-<h2 style="
-color:#16324f;
-margin-bottom:25px;
-">
-<?php echo esc_html($org_title); ?>
-</h2>
+.fms-governance-connector {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 72px;
+    justify-content: center;
+}
 
-<p style="
-line-height:2;
-color:#444;
-max-width:900px;
-">
-<?php echo nl2br(esc_html($org_text)); ?>
-</p>
+.fms-governance-connector::before {
+    background: #b8c7d3;
+    content: '';
+    display: block;
+    height: 42px;
+    width: 1px;
+}
 
-</div>
+.fms-governance-connector span {
+    background: #f7f9fb;
+    border: 1px solid #b8c7d3;
+    color: #234e70;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 7px 14px;
+    text-transform: uppercase;
+}
 
-<div style="
-text-align:center;
-padding:60px 20px;
-">
+.fms-governance-council {
+    margin-bottom: 54px;
+}
 
-<h3 style="
-color:#16324f;
-font-size:1.8rem;
-margin-bottom:15px;
-">
-Une question concernant notre gouvernance ?
-</h3>
+.fms-governance-council h2 {
+    text-align: center;
+}
 
-<p style="
-color:#666;
-margin-bottom:25px;
-">
-Nous sommes à votre écoute pour toute demande d'information.
-</p>
+.fms-governance-members {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
 
-<a
-href="<?php echo esc_url(home_url('/contact')); ?>"
-style="
-display:inline-block;
-background:#16324f;
-color:white;
-padding:15px 32px;
-border-radius:6px;
-text-decoration:none;
-font-weight:600;
-">
-Nous contacter
-</a>
+.fms-governance-member {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    padding: 24px;
+    text-align: center;
+}
 
-</div>
+.fms-governance-member img,
+.fms-governance-member-placeholder {
+    background: #e6edf4;
+    border: 1px solid #d9e2ec;
+    height: 104px;
+    margin: 0 auto 18px;
+    object-fit: cover;
+    width: 104px;
+}
 
-</div>
+.fms-governance-member h3 {
+    font-size: 1.12rem;
+}
 
+.fms-governance-member p {
+    color: #567086;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.fms-governance-org {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    padding: 34px;
+}
+
+@media (max-width: 760px) {
+    .fms-governance-section {
+        padding: 40px 16px 64px;
+    }
+
+    .fms-governance-header {
+        padding-left: 20px;
+    }
+
+    .fms-governance-superior {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+
+    .fms-governance-photo,
+    .fms-governance-photo-placeholder {
+        max-width: 220px;
+    }
+
+    .fms-governance-org {
+        padding: 24px;
+    }
+}
+</style>
+
+<section class="fms-governance-section">
+    <div class="fms-governance-container">
+        <header class="fms-governance-header">
+            <p class="fms-governance-kicker"><?php echo esc_html($hero_title); ?></p>
+            <h1><?php echo esc_html($title); ?></h1>
+            <p><?php echo esc_html($hero_text); ?></p>
+        </header>
+
+        <div class="fms-governance-intro">
+            <p><?php echo esc_html($subtitle); ?></p>
+        </div>
+
+        <div class="fms-governance-tree" aria-label="<?php echo esc_attr($org_title); ?>">
+            <article class="fms-governance-superior">
+                <div>
+                    <?php if ($superior_photo_url): ?>
+                        <img
+                            class="fms-governance-photo"
+                            src="<?php echo esc_url($superior_photo_url); ?>"
+                            alt="<?php echo esc_attr($superior_name); ?>">
+                    <?php else: ?>
+                        <div class="fms-governance-photo-placeholder" aria-hidden="true"></div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="fms-governance-person">
+                    <p class="fms-governance-role"><?php echo esc_html($superior_role); ?></p>
+                    <h3><?php echo esc_html($superior_name); ?></h3>
+                    <p class="fms-governance-message"><?php echo nl2br(esc_html($superior_message)); ?></p>
+                </div>
+            </article>
+
+            <?php if (!empty($council_members)): ?>
+                <div class="fms-governance-connector" aria-hidden="true">
+                    <span><?php echo esc_html($council_title); ?></span>
+                </div>
+
+                <section class="fms-governance-council">
+                    <h2><?php echo esc_html($council_title); ?></h2>
+                    <div class="fms-governance-members">
+                        <?php foreach ($council_members as $member): ?>
+                            <article class="fms-governance-member">
+                                <?php if ($member['photo_url']): ?>
+                                    <img
+                                        src="<?php echo esc_url($member['photo_url']); ?>"
+                                        alt="<?php echo esc_attr($member['name']); ?>">
+                                <?php else: ?>
+                                    <div class="fms-governance-member-placeholder" aria-hidden="true"></div>
+                                <?php endif; ?>
+
+                                <h3><?php echo esc_html($member['name']); ?></h3>
+                                <?php if (!empty($member['role'])): ?>
+                                    <p><?php echo esc_html($member['role']); ?></p>
+                                <?php endif; ?>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+        </div>
+
+        <section class="fms-governance-org">
+            <h2><?php echo esc_html($org_title); ?></h2>
+            <p><?php echo nl2br(esc_html($org_text)); ?></p>
+        </section>
+    </div>
 </section>

@@ -1,15 +1,15 @@
 <?php
 
 $title = fms_get_option(
-    'institution',
-    'title',
-    'Une congrégation au service de l\'Église et du monde'
+    'homepage',
+    'institution_title',
+    fms_get_option('institution', 'intro_title', 'Une présence franciscaine au cœur du monde')
 );
 
 $intro = fms_get_option(
-    'institution',
-    'intro',
-    'Depuis sa fondation, la congrégation des Franciscaines Servantes de Marie poursuit sa mission d’éducation, de fraternité et de service auprès des populations qu’elle accompagne.'
+    'homepage',
+    'institution_text',
+    fms_get_option('institution', 'intro_text', 'Les Sœurs Franciscaines Servantes de Marie forment une congrégation religieuse féminine de spiritualité franciscaine. Depuis ses origines, la Congrégation unit la prière, la vie fraternelle et le service concret auprès des personnes les plus fragiles.')
 );
 
 $quote = fms_get_option(

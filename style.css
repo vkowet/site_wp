@@ -21,7 +21,11 @@ h1,h2,h3{ font-family:'Cormorant Garamond', serif; }
 .fms-brand-title { text-align:center; max-width:700px; }
 .fms-brand-title h1 { margin:0; font-size:2.6rem; color:#16324f; font-weight:700; }
 .fms-brand-title p { margin-top:10px; font-size:1rem; color:#4a6572; font-style:italic; }
-.fms-main-nav { background:#16324f; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+.fms-main-nav { position:relative; z-index:9990; width:100%; background:#16324f; box-shadow:0 2px 8px rgba(0,0,0,0.08); transition:box-shadow .25s ease, background-color .25s ease; }
+.fms-main-nav.is-fixed { position:fixed; top:0; left:0; right:0; box-shadow:0 8px 24px rgba(16,42,67,.18); }
+.admin-bar .fms-main-nav.is-fixed { top:32px; }
+.fms-main-nav-placeholder { display:none; height:0; }
+.fms-main-nav-placeholder.is-active { display:block; }
 .fms-main-nav .menu { margin:0; padding:0; list-style:none; display:flex; justify-content:center; }
 .fms-main-nav .menu > li { position:relative; }
 .fms-main-nav .menu > li > a { display:block; padding:18px 22px; color:white; text-decoration:none; }
@@ -32,6 +36,40 @@ h1,h2,h3{ font-family:'Cormorant Garamond', serif; }
 .fms-footer-main { display:grid; grid-template-columns:repeat(4,1fr); gap:40px; padding:60px; }
 .fms-footer-bottom { border-top:1px solid rgba(255,255,255,0.15); display:flex; justify-content:space-between; padding:20px 60px; font-size:13px; }
 .fms-mobile-header,.fms-mobile-menu,.fms-mobile-overlay { display:none !important; }
+
+.fms-back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9997;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(255,255,255,.35);
+    background: #16324f;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity .2s ease, transform .2s ease, background .2s ease;
+}
+.fms-back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.fms-back-to-top:hover,
+.fms-back-to-top:focus-visible {
+    background: #234e70;
+    outline: none;
+}
+@media (max-width:992px){
+.fms-back-to-top{right:16px;bottom:16px;width:42px;height:42px;}
+}
+
 @media (max-width:992px){
 .fms-topbar,.fms-branding,.fms-main-nav{display:none!important;}
 .fms-mobile-header{display:flex!important;align-items:center;justify-content:space-between;background:#16324f;padding:20px 18px;color:white;}

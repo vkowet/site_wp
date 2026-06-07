@@ -3,6 +3,7 @@
 fms_section_card_start('Footer');
 ?>
 <tr><th>Nom</th><td><input type="text" name="fms_theme_options[footer][name]" value="<?php echo esc_attr(fms_get_option('footer','name')); ?>" class="large-text"></td></tr>
+<tr><th>Sous-titre</th><td><input type="text" name="fms_theme_options[footer][subtitle]" value="<?php echo esc_attr(fms_get_option('footer','subtitle')); ?>" class="large-text"></td></tr>
 <tr><th>Adresse 1</th><td><input type="text" name="fms_theme_options[footer][address1]" value="<?php echo esc_attr(fms_get_option('footer','address1')); ?>" class="large-text"></td></tr>
 <tr><th>Adresse 2</th><td><input type="text" name="fms_theme_options[footer][address2]" value="<?php echo esc_attr(fms_get_option('footer','address2')); ?>" class="large-text"></td></tr>
 <tr><th>Ville</th><td><input type="text" name="fms_theme_options[footer][city]" value="<?php echo esc_attr(fms_get_option('footer','city')); ?>" class="large-text"></td></tr>

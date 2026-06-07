@@ -69,6 +69,44 @@ function fms_enqueue_assets() {
             [],
             $version
         );
+
+        // Load contact page styles
+        if (is_page_template('page-contact.php')) {
+            wp_enqueue_style(
+                'fms-contact',
+                get_template_directory_uri() . '/assets/css/contact.css',
+                [],
+                $version
+            );
+        }
+
+        // Load vocations page styles
+        if (is_page_template('page-vocations.php') || is_page_template('template-vocations.php')) {
+            wp_enqueue_style(
+                'fms-vocations',
+                get_template_directory_uri() . '/assets/css/vocations.css',
+                [],
+                $version
+            );
+        }
+
+        // Load donation page assets
+        if (is_page('faire-un-don') || is_page_template('page-faire-un-don.php') || is_page_template('template-donation.php')) {
+            wp_enqueue_style(
+                'fms-donation',
+                get_template_directory_uri() . '/assets/css/donation.css',
+                [],
+                $version
+            );
+
+            wp_enqueue_script(
+                'fms-donation',
+                get_template_directory_uri() . '/assets/js/donation.js',
+                [],
+                $version,
+                true
+            );
+        }
     }
 
     wp_enqueue_script(
@@ -110,13 +148,6 @@ function fms_enqueue_assets() {
         $version,
         true
     );
-
-    wp_enqueue_style(
-    'fms-donation',
-    get_template_directory_uri() . '/assets/css/donation.css',
-    [],
-    wp_get_theme()->get('Version')
-);
 }
 add_action('wp_enqueue_scripts', 'fms_enqueue_assets');
 
